@@ -3,6 +3,7 @@ const image1 = '/shirt01.png'
 const image2 = '/shirt02.png'
 const fabric01 = '/fabric01.png'
 const fabric02 = '/fabric02.png'
+const blogImag01 = '/blog-img01.png'
 
 
 interface Product {
@@ -20,6 +21,13 @@ interface Fabric {
     imgUrl: string,
     price: number,
     offprice: string
+}
+interface Blog {
+id: string,
+title: string,
+text:string,
+imgUrl:string,
+data: string
 }
 
 export const Products: Product[] = [
@@ -129,3 +137,50 @@ export const Fabrics:Fabric[] =[
     },
 ]
 
+export const BlogPost =[
+
+        {
+            id: "02",
+            title: "Fashion Trends in 2021",
+            text:"A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ...",
+            imgUrl:  blogImag01,
+            date: "17 JAN 2021"
+            
+        },
+        {
+            id: "02",
+            title: "Fashion Trends in 2021",
+            text:"A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ...",
+            imgUrl:  blogImag01,
+            date: "17 JAN 2021"
+            
+        },
+        {
+            id: "02",
+            title: "Fashion Trends in 2021",
+            text:"A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ...",
+            imgUrl:  blogImag01,
+            date: "17 JAN 2021"
+            
+        },
+        {
+            id: "02",
+            title: "Fashion Trends in 2021",
+            text:"A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ...",
+            imgUrl:  blogImag01,
+            date: "17 JAN 2021"
+            
+        },
+        {
+            id: "02",
+            title: "Fashion Trends in 2021",
+            text:"A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ...",
+            imgUrl:  blogImag01,
+            date: "17 JAN 2021"
+            
+        },
+
+
+
+
+]

@@ -1,6 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat:wght@500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.swxiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slidesx{
+  text-align: center;
+  font-size: 18px;
+  background: red;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.swiper-slides imgs {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background:green;
+}

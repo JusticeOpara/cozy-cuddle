@@ -7,6 +7,7 @@ import { CiLock } from "react-icons/ci";
 import { Products, Fabrics } from "@/utills/data";
 import CustomComponent from "@/components/CustomComponent";
 import BenfitsComponent from "@/components/Benfits";
+import Blogs from "@/components/Blogs";
 
 console.log(Products, "--products");
 const Home: React.FC = () => {
@@ -37,8 +38,13 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <div className=" w-full bg-gray-400 h-full relative">
-          <Image src="/hero.png" fill alt="hero image" />
+        <div className="w-full bg-gray-400 h-full relative flex justify-end items-center">
+          <Image
+            src="/hero.png"
+            fill
+            className="object-cover"
+            alt="hero image"
+          />
         </div>
       </div>
 
@@ -264,8 +270,8 @@ const Home: React.FC = () => {
       </div>
 
       {/* Choose Us */}
-      <div className="h-full w-full bg-blue-200 py-0 px-[375px] flex flex-col justify-center items-center gap-20">
-        <div className="flex flex-col justify-center items-center gap-6 self-stretch pt-20">
+      <div className="h-full w-full bg-blue-500 py-0 px-[375px] flex flex-col justify-between items-center gap-[80px]">
+        <div className="flex flex-col justify-center items-center gap-6 self-stretch ">
           <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
             Why Choose Us
           </h1>
@@ -314,7 +320,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Read What Our Clients Say */}
+      {/* Testimoinal Carsouel */}
       <div className=" h-[400px]  w-full my-40 bg-slate-400 flex flex-col justify-between items-center px-[375px] ">
         <div className="flex flex-col justify-center items-center gap-6 self-stretch pt-20">
           <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
@@ -322,12 +328,43 @@ const Home: React.FC = () => {
           </h1>
           <div className="divide-y bg-black h-[2px] w-[200px]"></div>
         </div>
-        <div className="flex items-start gap-[30px]">
-       
-          <p className="font-normal font-Barlow leading-[30px]`">This was my first experience ordering a custom tailored suit. The staff was super helpful and professional and I got what I wanted for my upcoming wedding.  I am really grateful to Modiste.</p>
+
         
-</div>
+        <div className="flex items-start gap-[30px]">
+          <p className="font-normal font-Barlow leading-[30px]`">
+            This was my first experience ordering a custom tailored suit. The
+            staff was super helpful and professional and I got what I wanted for
+            my upcoming wedding. I am really grateful to Modiste.
+          </p>
+        </div>
       </div>
+
+      {/* Consultation */}
+
+      <div className="lg:h-[400px] w-full inline-flex pl-[375px] justify-end items-center gap-[30px]">
+        <div className="w-full h-full flex flex-col justify-center gap-10">
+          <CustomComponent
+            title="Need Consultations ?"
+            description="Our team was handpicked for their understanding of materials, process and passion for fashion. 
+          Whether you are browsing our site or visiting our store, we are always willing to share our deep knowledge and understanding of our makers and their craft."
+            buttonText="Contact Us"
+            learnMoreButton="Learn More"
+          />
+        </div>
+
+        <div className="w-full bsg-gray-400 h-full relative flex justify-center items-center">
+          <Image
+            src="/consultant.png"
+            fill
+            className="font object-cover flex items-center justify-center"
+            alt="hero image"
+          />
+        </div>
+      </div>
+
+      {/* Blogs */}
+      <Blogs />
+
     </>
   );
 };
