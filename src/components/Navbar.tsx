@@ -42,21 +42,29 @@ const Navbar = () => {
           </div>
         </div>
 
-       
-
         <div className="h-[120px] bg-[#E9F0FB] flex w-full px-[80px] justify-between items-center">
           <div className="flex items-center gap-[80px]">
             <div className="flex items-center gap-4">
-            <Image src="/nav-logo.svg" width={56} height={56} alt="Nav logo" />
-            <h1 className="text-3xl font-medium font-Montserrat">Fashion</h1>
+              <Image
+                src="/nav-logo.svg"
+                width={56}
+                height={56}
+                alt="Nav logo"
+              />
+              <h1 className="text-3xl font-medium font-Montserrat">Fashion</h1>
             </div>
-           
 
             <ul className="flex items-center gap-[40px]">
-              <li className="text-[20px] font-normal leading-[30px] font-Barlow">Home</li>
+              <li className="text-[20px] font-normal leading-[30px] font-Barlow">
+                Home
+              </li>
 
-              <li className="text-[20px] font-normal leading-[30px] font-Barlow">Shop</li>
-              <li className="text-[20px] font-normal leading-[30px] font-Barlow">Pages</li>
+              <li className="text-[20px] font-normal leading-[30px] font-Barlow">
+                Shop
+              </li>
+              <li className="text-[20px] font-normal leading-[30px] font-Barlow">
+                Pages
+              </li>
               <li className="text-[20px] font-normal leading-[30px] font-Barlow">
                 {" "}
                 Elements
@@ -64,8 +72,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="inline-flex items-center flex-end gap-6" >
-        
+          <div className="inline-flex items-center flex-end gap-6">
             <CiSearch size={32} />
             <RiShoppingBagLine size={32} />
             <button className="flex py-3 px-5 items-center bg-[#143A79] rounded-[800px] text-base uppercase font-semibold font-Barlow">

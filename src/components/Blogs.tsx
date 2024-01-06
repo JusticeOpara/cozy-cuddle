@@ -146,7 +146,7 @@ const Blogs = () => {
         </SwiperSlide>
       </Swiper>
 
-      <div ref={paginationEl} className="bg-white w-[224px] h-2 flex gap-3 justify-center" />
+      <div ref={paginationEl} className="w-[224px] h-2 flex gap-3 justify-center items-cnter" />
 
       <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-[#143A79] gap-2 border-[#143A79] rounded-[800px] font-Barlow font-medium">
         Read More

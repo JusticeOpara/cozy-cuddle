@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaPlayCircle, FaRegHeart } from "react-icons/fa";
+import { FaPlayCircle, FaRegHeart, FaRegStar } from "react-icons/fa";
 import { RiTruckLine } from "react-icons/ri";
 import { IoFlashOutline } from "react-icons/io5";
 import { AiOutlineShopping } from "react-icons/ai";
@@ -143,8 +143,24 @@ const Home: React.FC = () => {
       </div>
 
       {/* Custom shirt */}
-      <div className="h-[800px] w-full flex pr-[375px] items-center gap-[30px]">
-        <div className="w-full h-full bg-gray-200"></div>
+      <div className="h-[800px] w-full flex pr-[375px] items-center gap-[30px] bg-red-200">
+        
+        
+        <div className="w-[965px] h-full flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500">
+
+
+          <div className="w-[700px] h-full bg-gray-800 relative p-0 m-0 flex-shrink-0">
+              <Image src="/img-collage02.png" width={500} height={600} className="absolute z-5 right-[20%] top-[20%] tranosform"  alt="img collage" />
+          
+              <Image src="/img-collage.png" className="absolute z-5 top-0 right-0" width={321} height={388}  alt="img collage" />
+            
+
+            
+              <Image src="/img-collage03.png" className="w-[500px] h-[295px] absolute z-10 bottom-0 right-0" width={491} height={295} alt="img collage" />
+            
+          </div>
+        </div>
+
         <CustomComponent
           title="Custom Shirts"
           description="Stay ahead of the competitive tailoring business using our shirt
@@ -173,14 +189,15 @@ const Home: React.FC = () => {
         <div className="flex w-[465px] p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
-              New Arrivals
+              Explore Fabrics
             </h1>
             <div className="divide-y  bg-black h-[2px] w-[200px] "></div>
           </div>
 
           <p className="font-normal font-Barlow text-base w-[305px]">
-            Check out our exclusive selection of this season’s new arrivals,
-            made with world’s highest quality fabric
+            Explore our high quality fabrics using our cutting-edge technology
+            for a reduced environmental impact, to create a robust and
+            sustainable fabric
           </p>
           <button className="flex py-3 px-5 justify-center text-base items-center bg-[#FFD700] uppercase rounded-[800px] font-Barlow font-bold">
             browse all
@@ -207,7 +224,7 @@ const Home: React.FC = () => {
                 <span className="text-base font-Barlow font-semibold">
                   {data.title}
                 </span>
-                <span className="font-Montserrat font-medium text-xl text-black">
+                <span className="font-Montserrat self-stretch font-medium text-xl text-black">
                   {data.text}
                 </span>
                 <span className="text-base font-Barlow font-semibold">
@@ -321,21 +338,57 @@ const Home: React.FC = () => {
       </div>
 
       {/* Testimoinal Carsouel */}
-      <div className=" h-[400px]  w-full my-40 bg-slate-400 flex flex-col justify-between items-center px-[375px] ">
-        <div className="flex flex-col justify-center items-center gap-6 self-stretch pt-20">
+      <div className=" h-full gap-[110px]  w-full my-40 bg-slate-400 flex flex-col justify-between items-center px-[375px] ">
+        <div className="flex flex-col justify-center items-center gap-6 self-stretch">
           <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
             Read What Our Clients Say
           </h1>
           <div className="divide-y bg-black h-[2px] w-[200px]"></div>
         </div>
 
-        
         <div className="flex items-start gap-[30px]">
-          <p className="font-normal font-Barlow leading-[30px]`">
-            This was my first experience ordering a custom tailored suit. The
-            staff was super helpful and professional and I got what I wanted for
-            my upcoming wedding. I am really grateful to Modiste.
-          </p>
+          <Image
+            src="/avatar.png"
+            className="flex items-center justify-center"
+            width={170}
+            height={170}
+            alt="avatar"
+          />
+
+          <div>
+            <div className="flex items-center gap-3">
+              <h1 className="text-[28px] leading-[36px] font-Montserrat font-medium">
+                John Doe
+              </h1>
+              <FaRegStar size={24} />
+              <FaRegStar size={24} />
+              <FaRegStar size={24} />
+            </div>
+
+            <p className="font-normal font-Barlow leading-[30px] text-[#333]">
+              This was my first experience ordering a custom tailored suit. The
+              staff was super helpful and professional and I got what I wanted
+              for my upcoming wedding. I am really grateful to Modiste.
+            </p>
+
+            <div className="flex">
+              <Image
+                src="/arrowleft.svg"
+                className=""
+                width={24}
+                height={24}
+                alt="arrowleft"
+              />
+              <span>02 / 14</span>
+              <Image
+                src="/arrowright.svg"
+                className=""
+                width={24}
+                height={24}
+                alt="arrowleft"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -364,7 +417,6 @@ const Home: React.FC = () => {
 
       {/* Blogs */}
       <Blogs />
-
     </>
   );
 };
