@@ -1,20 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { ClientOnly } from "@/utills/client-only";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { RiArrowDropDownLine, RiShoppingBagLine } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { MdForwardToInbox } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-import { RiShoppingBagLine } from "react-icons/ri";
 import Image from "next/image";
 
 const Navbar = () => {
+  const [isNavExpanded, setIsNavExapanded] = useState(false);
+
+  const handleNav = () => {
+    setIsNavExapanded(true);
+  };
+
   return (
     <ClientOnly>
-      <nav className="bg-red-500 w-full">
-        <div className="h-[48px] bg-[#143A79] flex w-full py-[8px] px-[80px] justify-between items-center">
+      <nav className="w-full">
+        <div className="h-[48px] bg-[#143A79] md:flex w-full py-[8px] px-[80px] justify-between items-center hidden ">
           <ul className="flex items-center gap-6 font-Barlow">
             <li className="flex items-center gap-1">
               <FaLocationDot size={16} />{" "}
@@ -42,7 +48,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="h-[120px] bg-[#E9F0FB] flex w-full px-[80px] justify-between items-center">
+        <div className="h-[120px] bgs-[#E9F0FB] bg-red-300 flex w-full md:px-[80px] px-10 justify-between items-center ">
           <div className="flex items-center gap-[80px]">
             <div className="flex items-center gap-4">
               <Image
@@ -54,7 +60,7 @@ const Navbar = () => {
               <h1 className="text-3xl font-medium font-Montserrat">Fashion</h1>
             </div>
 
-            <ul className="flex items-center gap-[40px]">
+            <ul className=" md:flex items-center gap-[40px] hidden">
               <li className="text-[20px] font-normal leading-[30px] font-Barlow">
                 Home
               </li>
@@ -71,8 +77,18 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+          <div
+            onClick={handleNav}
+            className="max-md:block top-2 right-[20px] w-10 hidden"
+          >
+            {isNavExpanded ? (
+              <AiOutlineClose size={20} />
+            ) : (
+              <AiOutlineMenu size={23} />
+            )}
+          </div>
 
-          <div className="inline-flex items-center flex-end gap-6">
+          <div className="md:inline-flex items-center flex-end gap-6 hidden">
             <CiSearch size={32} />
             <RiShoppingBagLine size={32} />
             <button className="flex py-3 px-5 items-center bg-[#143A79] rounded-[800px] text-base uppercase font-semibold font-Barlow">

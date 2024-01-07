@@ -45,7 +45,7 @@ const BlogComponent: React.FC<BlogPostProps> = ({
 const Blogs = () => {
   const paginationEl = useRef(null);
   return (
-    <div className=" h-full w-full my-40 bg-slate-400 flex flex-col justify-center items-center py-0 px-[375px] gap-[80px]">
+    <div className=" h-full w-full bg-slate-400 flex flex-col justify-center items-center py-0 px-[375px] gap-[80px]">
       <div className="flex flex-col justify-center items-center gap-6 self-stretch ">
         <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
           Blog

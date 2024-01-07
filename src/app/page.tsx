@@ -12,7 +12,8 @@ import Blogs from "@/components/Blogs";
 console.log(Products, "--products");
 const Home: React.FC = () => {
   return (
-    <>
+    <div className="flex w-full h-full flex-col lg:gap-60 gap-20">
+      <div>
       <div className="w-full h-[800px] bg-[#E9F0FB] gap-[30px] flex pl-[375px] items-center">
         <div className="w-full bg-gray-200 h-full flex flex-col justify-center gap-10">
           <div className="flex flex-col gap-[24px]">
@@ -95,10 +96,12 @@ const Home: React.FC = () => {
           alt="hermes brand"
         />
       </div>
+      </div>
+     
 
       {/* Products */}
 
-      <div className="w-full h-[846px] flex px-20 justify-center gap-[30px] bg-blue-300 my-[144px]">
+      <div className="w-full h-[846px] flex px-20 justify-center gap-[30px] bg-blue-300">
         <div className="flex w-[465px] p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
@@ -144,20 +147,31 @@ const Home: React.FC = () => {
 
       {/* Custom shirt */}
       <div className="h-[800px] w-full flex pr-[375px] items-center gap-[30px] bg-red-200">
-        
-        
         <div className="w-[965px] h-full flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500">
+          <div className="w-[700px] h-full relative flex-shrink-0">
+            <Image
+              src="/img-collage02.png"
+              width={500}
+              height={600}
+              className="absolute z-5 right-[20%] top-[20%]"
+              alt="img collage"
+            />
 
+            <Image
+              src="/img-collage.png"
+              className="absolute z-5 top-[15%] right-[5%] hidden lg:block"
+              width={321}
+              height={388}
+              alt="img collage"
+            />
 
-          <div className="w-[700px] h-full bg-gray-800 relative p-0 m-0 flex-shrink-0">
-              <Image src="/img-collage02.png" width={500} height={600} className="absolute z-5 right-[20%] top-[20%] tranosform"  alt="img collage" />
-          
-              <Image src="/img-collage.png" className="absolute z-5 top-0 right-0" width={321} height={388}  alt="img collage" />
-            
-
-            
-              <Image src="/img-collage03.png" className="w-[500px] h-[295px] absolute z-10 bottom-0 right-0" width={491} height={295} alt="img collage" />
-            
+            <Image
+              src="/img-collage07.png"
+              className="absolute z-10 bottom-[0%] right-0 hidden lg:block"
+              width={491}
+              height={295}
+              alt="img collage"
+            />
           </div>
         </div>
 
@@ -172,7 +186,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Custom thobe */}
-      <div className="h-[800px] w-full flex pl-[375px] items-center gap-[30px] my-[144px]">
+      <div className="h-[800px] w-full flex pl-[375px] items-center gap-[30px]">
         <CustomComponent
           title="Custom Thobe"
           description="Over rich 9+ years of experience, Thobe Customization Software has benefited numerous clients in Arab countries. Its state-of-art technology meets the growing trend and desires of people"
@@ -180,12 +194,40 @@ const Home: React.FC = () => {
           learnMoreButton="Learn More"
         />
 
-        <div className="w-full h-full bg-gray-200"></div>
+        <div className="w-[965px] h-full flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500">
+          <div className="w-[700px] h-full relative flex-shrink-0 bg-slate-600">
+         
+            <Image
+              src="/img-collage06.png"
+              width={388}
+              height={447}
+              className="absolute z-5 right-[12%] top-[18%] tranosform"
+              alt="img collage"
+            />
+
+<Image
+              src="/img-collage05.png"
+              className="absolute z-5 top-[0%] left-[0%] hidden lg:block"
+              width={517}
+              height={358}
+              alt="img collage"
+            />
+
+            <Image
+              src="/img-collage03.png"
+              className="absolute z-10 bottom-[18%] left-[18%] hidden lg:block"
+              width={321}
+              height={388}
+            
+              alt="img collage"
+            />
+          </div>
+        </div>
       </div>
 
       {/* explore fabrics */}
 
-      <div className="w-full h-[846px] flex flex-row-reverse px-20 justify-center gap-[30px] bg-blue-300 my-[144px]">
+      <div className="w-full h-[846px] flex flex-row-reverse px-20 justify-center gap-[30px] bg-blue-300 ">
         <div className="flex w-[465px] p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
@@ -338,7 +380,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Testimoinal Carsouel */}
-      <div className=" h-full gap-[110px]  w-full my-40 bg-slate-400 flex flex-col justify-between items-center px-[375px] ">
+      <div className=" h-full gap-[110px] w-full bg-slate-400 flex flex-col justify-between items-center px-[375px]">
         <div className="flex flex-col justify-center items-center gap-6 self-stretch">
           <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
             Read What Our Clients Say
@@ -417,7 +459,7 @@ const Home: React.FC = () => {
 
       {/* Blogs */}
       <Blogs />
-    </>
+    </div>
   );
 };
 
