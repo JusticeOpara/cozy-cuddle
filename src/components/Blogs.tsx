@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef ,useState,useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
 import Image from "next/image";
@@ -43,9 +43,18 @@ const BlogComponent: React.FC<BlogPostProps> = ({
 };
 
 const Blogs = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+      if (window.innerWidth < 768) {
+          setIsMobile(true);
+      }
+  }, []);
+
+
   const paginationEl = useRef(null);
   return (
-    <div className=" h-full w-full bg-slate-400 flex flex-col justify-center items-center py-0 px-[375px] gap-[80px]">
+    <div className=" h-full w-full bg-slate-400 flex flex-col justify-center items-center py-0 lg:px-[375px] lg:gap-[80px] gap-10">
       <div className="flex flex-col justify-center items-center gap-6 self-stretch ">
         <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
           Blog
@@ -55,8 +64,8 @@ const Blogs = () => {
 
       {/* <div className="w-full h-full flex flex-col items-center justify-center "> */}
       <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
+        slidesPerView={isMobile? 1 :3}
+        spaceBetween={isMobile ? 16: 30}
         freeMode={true}
         pagination={{
           clickable: true,

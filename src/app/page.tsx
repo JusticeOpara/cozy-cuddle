@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaPlayCircle, FaRegHeart, FaRegStar } from "react-icons/fa";
+import { MdFavoriteBorder } from "react-icons/md";
 import { RiTruckLine } from "react-icons/ri";
 import { IoFlashOutline } from "react-icons/io5";
 import { AiOutlineShopping } from "react-icons/ai";
@@ -11,98 +12,110 @@ import Blogs from "@/components/Blogs";
 
 console.log(Products, "--products");
 const Home: React.FC = () => {
+
+  
+
   return (
-    <div className="flex w-full h-full flex-col lg:gap-60 gap-20">
-      <div>
-      <div className="w-full h-[800px] bg-[#E9F0FB] gap-[30px] flex pl-[375px] items-center">
-        <div className="w-full bg-gray-200 h-full flex flex-col justify-center gap-10">
-          <div className="flex flex-col gap-[24px]">
-            <h1 className="text-[48px] w-[570px] font-Montserrat font-medium leading-[60px] self-stretch">
-              Find <span className="text-[#143A79]"> Custom Suits </span>{" "}
-              Tailored For You
-            </h1>
-            <div className="divide-y  bg-black h-[2px] w-[200px] "></div>
+    <div className="flex w-full h-full flex-col lg:gap-60 gap-28 px-8 lg:px-0 mb-28">
+      <div className="w-full h-full">
+        <div className="w-full h-screen lg:h-[800px] bg-[#E9F0FB] gap-[30px] flex lg:pl-[375px] items-center">
+          <div className="w-full bg-gray-200 h-full flex flex-col justify-center gap-10">
+            <div className="flex flex-col gap-[24px]">
+              <h1 className="md:text-[48px] text-5xl md:w-[570px] font-Montserrat font-medium leading-[60px] self-stretch">
+                Find <span className="text-[#143A79]"> Custom Suits </span>{" "}
+                Tailored For You
+              </h1>
+              <div className="divide-y  bg-black h-[2px] w-[200px] "></div>
+            </div>
+
+            <p className="font-normal font-Barlow text-base md:w-[570px]">
+              Our shirts are crafted in Italy by cutting-edge technology using
+              some of the world`s finest and highest quality fabrics
+            </p>
+
+            <div className="flex gap-2">
+              <button className="flex py-3 px-5 justify-center text-base items-center bg-[#FFD700] uppercase rounded-[800px] font-Barlow font-medium">
+                Customize Now
+              </button>
+              <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border gap-2 border-[#143A79] rounded-[800px] font-Barlow font-medium">
+                <FaPlayCircle size={24} /> Learn More
+              </button>
+            </div>
           </div>
 
-          <p className="font-normal font-Barlow text-base w-[570px]">
-            Our shirts are crafted in Italy by cutting-edge technology using
-            some of the world`s finest and highest quality fabrics
-          </p>
-
-          <div className="flex gap-2">
-            <button className="flex py-3 px-5 justify-center text-base items-center bg-[#FFD700] uppercase rounded-[800px] font-Barlow font-medium">
-              Customize Now
-            </button>
-            <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border gap-2 border-[#143A79] rounded-[800px] font-Barlow font-medium">
-              <FaPlayCircle size={24} /> Learn More
-            </button>
+          <div className="w-full bg-gray-400 h-full relative lg:flex justify-end items-center hidden ">
+            <Image
+              src="/hero.png"
+              fill
+              className="object-cover"
+              alt="hero image"
+            />
           </div>
         </div>
 
-        <div className="w-full bg-gray-400 h-full relative flex justify-end items-center">
-          <Image
-            src="/hero.png"
-            fill
-            className="object-cover"
-            alt="hero image"
-          />
+        {/*Brand  */}
+
+        <div className="w-full lg:h-[320px] lg:p-20 p-6 flex justify-between items-center bg-[#F2F2F2] gap-6">
+          <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
+            <Image
+              src="/zara-brand.svg"
+              fill
+              objectFit="contain"
+              alt="zara brand"
+            />
+          </div>
+
+          <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
+            <Image
+              src="/pull-brand.svg"
+              fill
+              objectFit="contain"
+              alt="pull brand"
+            />
+          </div>
+
+          <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
+            <Image
+              src="/hollister-brand.png"
+              objectFit="contain"
+              fill
+              alt="hollister-brand"
+            />
+          </div>
+
+          <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
+            <Image
+              src="/versace-brand.png"
+              fill
+              objectFit="contain"
+              alt="versace brand"
+            />
+          </div>
+
+          <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
+            <Image
+              src="/burberry-brand.png"
+              fill
+              objectFit="contain"
+              alt="burberry brand"
+            />
+          </div>
+
+          <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
+            <Image
+              src="/hermes-brand.png"
+              fill
+              objectFit="contain"
+              alt="hermes brand"
+            />
+          </div>
         </div>
       </div>
-
-      {/*Brand  */}
-
-      <div className="w-full h-[320px] p-20 flex justify-between items-center bdg-[#F2F2F2] bg-slate-500">
-        <Image
-          src="/zara-brand.svg"
-          width={160}
-          height={160}
-          className="flex items-center justify-center"
-          alt="zara brand"
-        />
-        <Image
-          src="/pull-brand.svg"
-          width={160}
-          height={160}
-          className="flex items-center justify-center"
-          alt="pull brand"
-        />
-        <Image
-          src="/hollister-brand.png"
-          className="flex items-center justify-center"
-          width={160}
-          height={160}
-          alt="hollister-brand"
-        />
-        <Image
-          src="/versace-brand.png"
-          width={160}
-          height={160}
-          className="flex items-center justify-center"
-          alt="versace brand"
-        />
-
-        <Image
-          src="/burberry-brand.png"
-          width={160}
-          height={160}
-          className="flex items-center justify-center"
-          alt="burberry brand"
-        />
-        <Image
-          src="/hermes-brand.png"
-          width={160}
-          height={160}
-          className="flex items-center justify-center"
-          alt="hermes brand"
-        />
-      </div>
-      </div>
-     
 
       {/* Products */}
 
-      <div className="w-full h-[846px] flex px-20 justify-center gap-[30px] bg-blue-300">
-        <div className="flex w-[465px] p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
+      <div className="w-full lg:h-[846px] h-full flex lg:flex-row flex-col lg:px-20 justify-center gap-[30px] bg-blue-300">
+        <div className="flex lg:w-[465px] h-full md:p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
               New Arrivals
@@ -119,24 +132,38 @@ const Home: React.FC = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 2xl:grid-cols-3 gap-[30px] ">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] ">
           {Products?.map((data) => (
             <div
               key={data.id}
-              className="bg-[#fff] flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79]"
+              className="bg-white h-[500px] lg:h-full w-full flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79]"
             >
-              <div className="flex items-center justify-center h-full w-full py-[9px] px-[13px] bg-[#F2F2F2] rounded-t-3xl relative">
+              <div className="flex items-center justify-center h-full w-full py-[9px] px-[13px] bg-[#F2F2F2] rounded-t-3xl relative transition">
                 <Image src={data.imgUrl} fill objectFit="cover" alt="shirt" />
+
               </div>
+              {/* hover on the product it should pop the container in the screen */}
+              <div className="inline-flex justify-center items-center gap-2 w-[242px] h-[48px] absolute ">
+                <div className="flex w-[48px] h-[48px] bg-red-200 justify-center items-center rounded-[24px]">
+                  <AiOutlineShopping size={24}/>
+                </div>
+                <button className="flex py-[12px] px-[20px] justify-center items-center text-[#143A79] font-Barlow text-base font-semibold uppercase text-center bg-[#FFD700] rounded-[800px]">Customize</button>
+                <div className="flex w-[48px] h-[48px] bg-red-200 justify-center items-center rounded-[24px]">
+                
+                  <MdFavoriteBorder size={24} />
+                </div>
+              </div>
+         
 
               <div className="flex p-6 justify-center flex-col gap-6 items-start self-stretch">
                 <span className="text-base font-Barlow font-semibold">
                   {data.title}
                 </span>
+                
                 <span className="font-Montserrat font-medium text-xl text-black">
                   {data.text}
                 </span>
-                <span className="text-base font-Barlow font-semibold">
+                <span className="text-base font-Barlow font-bold">
                   ${data.price}
                 </span>
               </div>
@@ -146,8 +173,8 @@ const Home: React.FC = () => {
       </div>
 
       {/* Custom shirt */}
-      <div className="h-[800px] w-full flex pr-[375px] items-center gap-[30px] bg-red-200">
-        <div className="w-[965px] h-full flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500">
+      <div className="lg:h-[800px] w-full flex lg:pr-[375px] items-center gap-[30px] bg-red-200">
+        <div className="w-[965px] h-full  lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
           <div className="w-[700px] h-full relative flex-shrink-0">
             <Image
               src="/img-collage02.png"
@@ -186,28 +213,27 @@ const Home: React.FC = () => {
       </div>
 
       {/* Custom thobe */}
-      <div className="h-[800px] w-full flex pl-[375px] items-center gap-[30px]">
+      <div className="lg:h-[800px] w-full flex lg:pl-[375px] items-center gap-[30px] bg-slate-400">
         <CustomComponent
           title="Custom Thobe"
           description="Over rich 9+ years of experience, Thobe Customization Software has benefited numerous clients in Arab countries. Its state-of-art technology meets the growing trend and desires of people"
           buttonText="Customize thobe"
           learnMoreButton="Learn More"
         />
-
-        <div className="w-[965px] h-full flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500">
-          <div className="w-[700px] h-full relative flex-shrink-0 bg-slate-600">
-         
+        {/*  */}
+        <div className="w-[965px] h-full lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
+          <div className="w-[700px] h-full bg-black relative flex-shrink-0">
             <Image
               src="/img-collage06.png"
               width={388}
               height={447}
-              className="absolute z-5 right-[12%] top-[18%] tranosform"
+              className="absolute right-[12%] top-[18%] tranosform"
               alt="img collage"
             />
 
-<Image
+            <Image
               src="/img-collage05.png"
-              className="absolute z-5 top-[0%] left-[0%] hidden lg:block"
+              className="absolute  top-[0%] left-[0%] hidden lg:block"
               width={517}
               height={358}
               alt="img collage"
@@ -218,7 +244,6 @@ const Home: React.FC = () => {
               className="absolute z-10 bottom-[18%] left-[18%] hidden lg:block"
               width={321}
               height={388}
-            
               alt="img collage"
             />
           </div>
@@ -227,8 +252,8 @@ const Home: React.FC = () => {
 
       {/* explore fabrics */}
 
-      <div className="w-full h-[846px] flex flex-row-reverse px-20 justify-center gap-[30px] bg-blue-300 ">
-        <div className="flex w-[465px] p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
+      <div className="w-full lg:h-[846px] flex flex-col lg:flex-row-reverse lg:px-20 justify-center gap-[30px] bg-blue-300 ">
+        <div className="flex lg:w-[465px] lg:p-20 p-12 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
               Explore Fabrics
@@ -246,18 +271,18 @@ const Home: React.FC = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 2xl:grid-cols-3 gap-[30px] ">
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-[30px] ">
           {Fabrics?.map((data) => (
             <div
               key={data.id}
-              className="bg-[#fff] flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79]"
+              className="bg-[#fff] h-[500px] lg:h-full flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79]"
             >
               <div className="flex items-center justify-center h-full w-full py-[9px] px-[13px] bg-[#F2F2F2] rounded-t-3xl relative">
                 <Image
                   src={data.imgUrl}
                   fill
                   objectFit="cover"
-                  className="rounded-t-3xl "
+                  className="rounded-t-3xl transition"
                   alt="shirt"
                 />
               </div>
@@ -279,19 +304,19 @@ const Home: React.FC = () => {
       </div>
 
       {/* Accessories */}
-      <div className="px-[375px] w-full lg:h-[1076px] flex justify-center relative">
+      <div className="lg:px-[375px] w-full lg:h-[1076px] h-screen flex justify-center relative">
         <div className="w-full h-[803px] absolute inset-0 bg-no-repeat bg-center bg-cover top-0">
           <Image
             src="/yellow-bg.svg"
             className="object-cover"
             fill
-            alt="game-pad"
+            alt="background colour"
           />
         </div>
 
-        <div className="absolute z-5 top-0 flex flex-col gap-20 justify-center ">
+        <div className="absolute top-0 flex flex-col lg:gap-20 gap-0 justify-center ">
           <div className="flex flex-col justify-center items-center gap-6 self-stretch pt-20">
-            <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
+            <h1 className="md:text-[48px] text-4xl font-medium md:leading-[60px] font-Montserrat text-center">
               See Our Accessories
             </h1>
             <div className="divide-y bg-black h-[2px] w-[200px]"></div>
@@ -299,7 +324,7 @@ const Home: React.FC = () => {
 
           <div className="flex h-[830px] flex-col justify-center gap-[30px] items-start">
             <div className="h-[400px] w-full flex gap-[30px]">
-              <div className="h-full w-[695px] justify-center items-center flex relative">
+              <div className="h-full lg:w-[695px] w-[50%] justify-center items-center flex relative">
                 <Image
                   src="/accessories01.png"
                   fill
@@ -307,7 +332,7 @@ const Home: React.FC = () => {
                   alt="bag accessories"
                 />
               </div>
-              <div className="h-full w-[445px] justify-center items-center flex relative ">
+              <div className="h-full lg:w-[445px] w-[50%] justify-center items-center flex relative ">
                 <Image
                   src="/accessories02.png"
                   fill
@@ -316,7 +341,7 @@ const Home: React.FC = () => {
                 />
               </div>
             </div>
-            <div className="h-[400px] w-full relative">
+            <div className="lg:h-[400px] h-[200px] w-full relative">
               <Image
                 src="/accessories03.png"
                 className="rounded-3xl"
@@ -329,7 +354,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Choose Us */}
-      <div className="h-full w-full bg-blue-500 py-0 px-[375px] flex flex-col justify-between items-center gap-[80px]">
+      <div className="h-full w-full py-0 xl:px-[375px] lg:px-[225px] bg-fuchsia-400 flex flex-col justify-between items-center gap-[80px]">
         <div className="flex flex-col justify-center items-center gap-6 self-stretch ">
           <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
             Why Choose Us
@@ -337,7 +362,7 @@ const Home: React.FC = () => {
           <div className="divide-y bg-black h-[2px] w-[200px]"></div>
         </div>
 
-        <div className="h-full w-full grid 2xl:grid-cols-3 gap-[30px]">
+        <div className="h-full w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-[30px] bg-slate-400">
           <BenfitsComponent
             title="Trusted"
             icon={<FaRegHeart size={40} />}
@@ -380,15 +405,15 @@ const Home: React.FC = () => {
       </div>
 
       {/* Testimoinal Carsouel */}
-      <div className=" h-full gap-[110px] w-full bg-slate-400 flex flex-col justify-between items-center px-[375px]">
+      <div className="h-full lg:gap-[110px] gap-16 w-full bg-slate-400 flex flex-col justify-between items-center lg:px-[375px]">
         <div className="flex flex-col justify-center items-center gap-6 self-stretch">
-          <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
+          <h1 className="md:text-[48px] text-4xl font-medium md:leading-[60px] font-Montserrat text-center">
             Read What Our Clients Say
           </h1>
           <div className="divide-y bg-black h-[2px] w-[200px]"></div>
         </div>
 
-        <div className="flex items-start gap-[30px]">
+        <div className="flex items-start md:gap-[30px] gap-[20px]">
           <Image
             src="/avatar.png"
             className="flex items-center justify-center"
@@ -402,6 +427,7 @@ const Home: React.FC = () => {
               <h1 className="text-[28px] leading-[36px] font-Montserrat font-medium">
                 John Doe
               </h1>
+            
               <FaRegStar size={24} />
               <FaRegStar size={24} />
               <FaRegStar size={24} />
@@ -436,7 +462,7 @@ const Home: React.FC = () => {
 
       {/* Consultation */}
 
-      <div className="lg:h-[400px] w-full inline-flex pl-[375px] justify-end items-center gap-[30px]">
+      <div className="lg:h-[400px] w-full inline-flex lg:pl-[375px] justify-end items-center gap-[30px]">
         <div className="w-full h-full flex flex-col justify-center gap-10">
           <CustomComponent
             title="Need Consultations ?"
@@ -447,7 +473,7 @@ const Home: React.FC = () => {
           />
         </div>
 
-        <div className="w-full bsg-gray-400 h-full relative flex justify-center items-center">
+        <div className="w-full bsg-gray-400 h-full relative lg:flex justify-center items-center hidden">
           <Image
             src="/consultant.png"
             fill

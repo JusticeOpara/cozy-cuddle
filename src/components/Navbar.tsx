@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { ClientOnly } from "@/utills/client-only";
 import { RiArrowDropDownLine, RiShoppingBagLine } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { MdForwardToInbox } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
+import { MdForwardToInbox,MdOutlinePages , MdLogin} from "react-icons/md";
+import { FaPhoneAlt,FaHome,FaShoppingCart } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import Image from "next/image";
 
@@ -14,7 +15,7 @@ const Navbar = () => {
   const [isNavExpanded, setIsNavExapanded] = useState(false);
 
   const handleNav = () => {
-    setIsNavExapanded(true);
+    setIsNavExapanded(!isNavExpanded);
   };
 
   return (
@@ -48,7 +49,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="h-[120px] bgs-[#E9F0FB] bg-red-300 flex w-full md:px-[80px] px-10 justify-between items-center ">
+        <div className="md:h-[120px] h-[72px] z-50 bg-[#E9F0FB] flex w-full md:px-[80px] px-8 justify-between items-center fixed md:relative">
           <div className="flex items-center gap-[80px]">
             <div className="flex items-center gap-4">
               <Image
@@ -77,17 +78,6 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div
-            onClick={handleNav}
-            className="max-md:block top-2 right-[20px] w-10 hidden"
-          >
-            {isNavExpanded ? (
-              <AiOutlineClose size={20} />
-            ) : (
-              <AiOutlineMenu size={23} />
-            )}
-          </div>
-
           <div className="md:inline-flex items-center flex-end gap-6 hidden">
             <CiSearch size={32} />
             <RiShoppingBagLine size={32} />
@@ -98,6 +88,47 @@ const Navbar = () => {
               Login
             </button>
           </div>
+          {/* small screen size */}
+          <div
+            onClick={handleNav}
+            className="max-md:block top-2 right-[20px] w-10 hidden"
+          >
+            {isNavExpanded ? (
+              <AiOutlineClose size={24} />
+            ) : (
+              <AiOutlineMenu size={24} />
+            )}
+          </div>
+          <div className={isNavExpanded ? 'h-full fixed absodlute left-0 top-0 w-full mx-auto z-50 block mt-16  ease-in-out flex-col md:hidden' : 'absolute left-[-100%]'}>
+                    <ul onClick={handleNav} className='w-full h-full bg-white flex flex-col gap-6  py-4 px-6'>
+
+                        <li className='w-full flex gap-4 items-center rounded-lg p-4 hover:bg-[#143A79]'> 
+                        <FaHome size={24} />
+                        <Link href="/" className="font-medium text-lg font-Montserrat">Home </Link>
+                        </li>
+                   
+
+                        <li className='w-full flex gap-4 items-center p-4 hover:bg-[#143A79] rounded-lg'>
+                        <FaShoppingCart size={24} />
+                          <Link  href="/about" className="text-base font-medium font-Montserrat">About Us </Link>
+                          </li>
+
+                        <li className='w-full flex gap-4 items-center p-4 hover:bg-[#143A79] rounded-lg'>
+                        <MdOutlinePages size={24}/>  
+                        <Link  href="/contact" className="text-base font-medium font-Montserrat">Contact Us </Link> 
+                        </li>
+
+                        <li className='w-full flex gap-4 items-center p-4 hover:bg-[#143A79] rounded-lg'>
+                        <MdLogin />
+                        <Link className="text-base font-medium font-Montserrat" href="/login">Login</Link> 
+                        </li>
+
+
+                    </ul>
+                </div>
+
+
+          
         </div>
       </nav>
     </ClientOnly>

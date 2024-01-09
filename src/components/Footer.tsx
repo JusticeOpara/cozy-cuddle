@@ -36,8 +36,8 @@ const MenuItem: React.FC<MenuItemProps> = ({ title, items }) => {
 const Footer = () => {
   return (
     <ClientOnly>
-      <div className="flex w-full py-[80px] px-[375px] bg-blue-300 flex-col justify-center items-center gap-[80px]">
-        <div className="flex justify-center w-full items-center gap-[30px]">
+      <div className="flex w-full py-[80px]  xl:px-[375px] bg-blue-300 flex-col justify-center items-center lg:gap-[80px] gap-[40px] px-8">
+        <div className="flex lg:flex-row flex-col justify-center w-full items-center gap-[30px]">
           <h1 className="text-[28px] leading-9 font-Montserrat font-medium ">
             Sign up for our Newsletter
           </h1>
@@ -56,23 +56,27 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full flex justify-center items-start gap-[30px] self-stretch">
-          <div className="flex flex-col justify-center items-start gap-10 w-[255px]">
+        <div className="w-full flex lg:flex-row flex-col-reverse justify-center items-start gap-[30px] self-stretch">
+          <div className="flex lg:flex-col flex-row justify-center items-start gap-10 lg:w-[255px] w-full">
             <div className="w-full flex items-center gap-4">
+            
+              <div className="relative lg:w-[56px] lg:h-[56px] h-[24px] w-[24px] ">
               <Image
                 src="/nav-logo.svg"
-                width={56}
-                height={56}
+               fill
+               objectFit="contain"
                 alt="Nav logo"
               />
-              <h1 className="text-3xl font-medium font-Montserrat">Fashion</h1>
+              </div>
+             
+              <h1 className="lg:text-3xl text-xl font-medium font-Montserrat">Fashion</h1>
             </div>
 
-            <span className="text-base font-semibold font-Barlow text-[#333]">
+            <span className="text-base font-semibold font-Barlow text-[#333] hidden">
               info@greelogix.com
             </span>
 
-            <span className="text-base font-semibold font-Barlow text-[#333]">
+            <span className="text-base font-semibold font-Barlow text-[#333] hidden">
               +92 333 6527366
             </span>
 
@@ -130,10 +134,10 @@ const Footer = () => {
 
         <div className="divide-y  bg-black h-[2px] w-full "></div>
 
-        <div className="flex justify-between items-center gap-10 self-stretch">
-          <span>© Copyright 2020 | All Rights Reserved By Modiste</span>
+        <div className="flex justify-between items-center self-stretch">
+          <span className="md:text-base text-[10px]">© Copyright 2020 | All Rights Reserved By Modiste</span>
 
-          <div className="flex gap-6">
+          <div className="flex md:gap-6 gap-2">
             <Image src="/payment-icon.svg" width={40} height={40} alt=""/>
             <Image src="/payment-icon02.svg" width={40} height={40} alt=""/>
             <Image src="/payment-icon03.svg" width={40} height={40} alt=""/>

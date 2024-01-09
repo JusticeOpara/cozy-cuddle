@@ -16,13 +16,13 @@ const CustomComponent: React.FC<CustomComponentProps> = ({
   return (
     <div className="w-full bg-gray-200 h-full flex flex-col justify-center gap-10">
       <div className="flex flex-col gap-[24px]">
-        <h1 className="text-[48px] w-[570px] font-Montserrat font-medium leading-[60px] self-stretch">
+        <h1 className="md:text-[48px] lg:w-[570px] text-4xl font-Montserrat font-medium md:leading-[60px] self-stretch">
           {title}
         </h1>
         <div className="divide-y  bg-black h-[2px] w-[200px] "></div>
       </div>
 
-      <p className="font-normal font-Barlow text-base w-[570px]">
+      <p className="font-normal font-Barlow text-base md:w-[570px] w-full">
         {description}
       </p>
 
