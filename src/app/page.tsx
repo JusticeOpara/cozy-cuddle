@@ -1,6 +1,8 @@
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import { FaPlayCircle, FaRegHeart, FaRegStar } from "react-icons/fa";
-import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { RiTruckLine } from "react-icons/ri";
 import { IoFlashOutline } from "react-icons/io5";
 import { AiOutlineShopping } from "react-icons/ai";
@@ -12,8 +14,36 @@ import Blogs from "@/components/Blogs";
 
 console.log(Products, "--products");
 const Home: React.FC = () => {
+  const [hoveredStates, setHoveredStates] = useState<boolean[]>(
+    Array(Products.length).fill(false)
+  );
+  const [favorite, setFavorite] = useState<{ [id: number]: boolean }>({});
 
-  
+  const handleFavourited = (index: number) => {
+    setFavorite((prevFavorites) => ({ ...prevFavorites, [index]: true }));
+  };
+
+  const handleUnfavourite = (index: number) => {
+    setFavorite((prevFavorites) => ({ ...prevFavorites, [index]: false }));
+  };
+
+  const handleHover = (index: number) => {
+    setHoveredStates((prevStates) => {
+      const updatedStates = [...prevStates];
+      updatedStates[index] = true;
+
+      return updatedStates;
+    });
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setHoveredStates((prevStates) => {
+      const updatedStates = [...prevStates];
+      updatedStates[index] = false;
+      return updatedStates;
+    });
+  };
+  console.log(hoveredStates, "--hoverStates");
 
   return (
     <div className="flex w-full h-full flex-col lg:gap-60 gap-28 px-8 lg:px-0 mb-28">
@@ -133,33 +163,46 @@ const Home: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] ">
-          {Products?.map((data) => (
+          {Products?.map((data, index: number) => (
             <div
               key={data.id}
-              className="bg-white h-[500px] lg:h-full w-full flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79]"
+              className="bg-white h-[500px] lg:h-full w-full flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79] cursor-pointer"
+              onMouseEnter={() => handleHover(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
             >
               <div className="flex items-center justify-center h-full w-full py-[9px] px-[13px] bg-[#F2F2F2] rounded-t-3xl relative transition">
                 <Image src={data.imgUrl} fill objectFit="cover" alt="shirt" />
-
               </div>
               {/* hover on the product it should pop the container in the screen */}
-              <div className="inline-flex justify-center items-center gap-2 w-[242px] h-[48px] absolute ">
-                <div className="flex w-[48px] h-[48px] bg-red-200 justify-center items-center rounded-[24px]">
-                  <AiOutlineShopping size={24}/>
+              {hoveredStates[index] && (
+                <div className="inline-flex justify-center items-center gap-2 w-[242px] h-[48px] absolute pt-28">
+                  <div className="flex w-[48px] h-[48px] bg-white justify-center items-center rounded-[24px]">
+                    <AiOutlineShopping size={24} />
+                  </div>
+                  <button className="flex py-[12px] px-[20px] justify-center items-center text-[#143A79] font-Barlow text-base font-semibold uppercase text-center bg-[#FFD700] rounded-[800px]">
+                    Customize
+                  </button>
+                  <div className="flex w-[48px] h-[48px] bg-white justify-center items-center rounded-[24px]">
+                    {favorite[index] ? (
+                      <MdFavorite
+                        onClick={() => handleUnfavourite(index)}
+                        size={24}
+                      />
+                    ) : (
+                      <MdFavoriteBorder
+                        onClick={() => handleFavourited(index)}
+                        size={24}
+                      />
+                    )}
+                  </div>
                 </div>
-                <button className="flex py-[12px] px-[20px] justify-center items-center text-[#143A79] font-Barlow text-base font-semibold uppercase text-center bg-[#FFD700] rounded-[800px]">Customize</button>
-                <div className="flex w-[48px] h-[48px] bg-red-200 justify-center items-center rounded-[24px]">
-                
-                  <MdFavoriteBorder size={24} />
-                </div>
-              </div>
-         
+              )}
 
               <div className="flex p-6 justify-center flex-col gap-6 items-start self-stretch">
                 <span className="text-base font-Barlow font-semibold">
                   {data.title}
                 </span>
-                
+
                 <span className="font-Montserrat font-medium text-xl text-black">
                   {data.text}
                 </span>
@@ -180,13 +223,13 @@ const Home: React.FC = () => {
               src="/img-collage02.png"
               width={500}
               height={600}
-              className="absolute z-5 right-[20%] top-[20%]"
+              className="absolute right-[20%] top-[20%]"
               alt="img collage"
             />
 
             <Image
               src="/img-collage.png"
-              className="absolute z-5 top-[15%] right-[5%] hidden lg:block"
+              className="absolute top-[15%] right-[5%] hidden lg:block"
               width={321}
               height={388}
               alt="img collage"
@@ -331,7 +374,18 @@ const Home: React.FC = () => {
                   className="rounded-3xl"
                   alt="bag accessories"
                 />
+                <div className="flex flex-col items-start gap-10 absolute w-full px-10 bottom-[40px]">
+                  <span className="text-5xl font-medium leading-[60px] font-Montserrat text-white items-stretch ">
+                    {" "}
+                    Bags
+                  </span>
+                  <div className="divide-y bg-white h-[2px] w-[200px]"></div>
+                  <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-white gap-2 border-white rounded-[800px] font-Barlow font-medium">
+                    learn more
+                  </button>
+                </div>
               </div>
+
               <div className="h-full lg:w-[445px] w-[50%] justify-center items-center flex relative ">
                 <Image
                   src="/accessories02.png"
@@ -339,6 +393,16 @@ const Home: React.FC = () => {
                   className="rounded-3xl"
                   alt="watch accessories"
                 />
+                <div className=" flex flex-col items-start gap-10 absolute w-full px-10 bottom-[40px]">
+                  <span className="text-5xl font-medium leading-[60px] font-Montserrat text-white items-stretch ">
+                    {" "}
+                    Watches
+                  </span>
+                  <div className="divide-y bg-white h-[2px] w-[200px]"></div>
+                  <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border bg-yellow-500 text-white gap-2 border-white rounded-[800px] font-Barlow font-medium">
+                    learn more
+                  </button>
+                </div>
               </div>
             </div>
             <div className="lg:h-[400px] h-[200px] w-full relative">
@@ -348,6 +412,16 @@ const Home: React.FC = () => {
                 fill
                 alt="perfume accessories"
               />
+                  <div className=" flex flex-col items-start gap-10 absolute w-full px-10 bottom-[40px]">
+                  <span className="text-5xl font-medium leading-[60px] font-Montserrat text-white items-stretch ">
+                    {" "}
+                    Perfumes
+                  </span>
+                  <div className="divide-y bg-white h-[2px] w-[200px]"></div>
+                  <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-white gap-2 border-white rounded-[800px] font-Barlow font-medium">
+                    learn more
+                  </button>
+                </div>
             </div>
           </div>
         </div>
@@ -427,7 +501,7 @@ const Home: React.FC = () => {
               <h1 className="text-[28px] leading-[36px] font-Montserrat font-medium">
                 John Doe
               </h1>
-            
+
               <FaRegStar size={24} />
               <FaRegStar size={24} />
               <FaRegStar size={24} />
