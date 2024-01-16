@@ -1,15 +1,17 @@
-import React from 'react';
+import React from "react";
 
 interface CustomComponentProps {
   title: string;
   description: string;
+  subDescription?: string | null;
   buttonText: string;
-  learnMoreButton: string;
+  learnMoreButton?: string;
 }
 
 const CustomComponent: React.FC<CustomComponentProps> = ({
   title,
   description,
+  subDescription,
   buttonText,
   learnMoreButton,
 }) => {
@@ -21,18 +23,29 @@ const CustomComponent: React.FC<CustomComponentProps> = ({
         </h1>
         <div className="divide-y  bg-black h-[2px] w-[200px] "></div>
       </div>
-
-      <p className="font-normal font-Barlow text-base md:w-[570px] w-full">
-        {description}
-      </p>
+      <div className="flex flex-col gap-6">
+        <p className="font-normal font-Barlow text-base md:w-[570px] w-full">
+          {description}
+        </p>
+        {subDescription && (
+          <p className="font-normal font-Barlow text-base md:w-[570px] w-full">
+            {subDescription}
+          </p>
+        )}
+      </div>
 
       <div className="flex gap-2">
         <button className="flex py-3 px-5 justify-center text-base items-center text-[#143A79] bg-[#FFD700] uppercase rounded-[800px] font-Barlow font-medium">
           {buttonText}
         </button>
-        <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-[#143A79] gap-2 border-[#143A79] rounded-[800px] font-Barlow font-medium">
+        {learnMoreButton && (
+          <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-[#143A79] gap-2 border-[#143A79] rounded-[800px] font-Barlow font-medium">
+            {learnMoreButton}
+          </button>
+        )}
+        {/* <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-[#143A79] gap-2 border-[#143A79] rounded-[800px] font-Barlow font-medium">
           {learnMoreButton}
-        </button>
+        </button> */}
       </div>
     </div>
   );

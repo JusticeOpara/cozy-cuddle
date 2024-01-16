@@ -250,6 +250,7 @@ const Home: React.FC = () => {
           description="Stay ahead of the competitive tailoring business using our shirt
         customization tool. It allows your customers to design their shirts
         themselves with ease"
+        subDescription={null}
           buttonText="Customize Shirts"
           learnMoreButton="Learn More"
         />
@@ -260,6 +261,7 @@ const Home: React.FC = () => {
         <CustomComponent
           title="Custom Thobe"
           description="Over rich 9+ years of experience, Thobe Customization Software has benefited numerous clients in Arab countries. Its state-of-art technology meets the growing trend and desires of people"
+          subDescription={null}
           buttonText="Customize thobe"
           learnMoreButton="Learn More"
         />

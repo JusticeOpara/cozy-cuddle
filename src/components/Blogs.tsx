@@ -24,7 +24,15 @@ const BlogComponent: React.FC<BlogPostProps> = ({
   return (
     <div className="bg-[#fff] flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79]">
       <div className="flex items-center justify-center h-[200px] w-full py-[9px] px-[13px] bg-[#F2F2F2] rounded-t-3xl relative">
-        {imgUrl}
+        
+        {imgUrl && (
+          <Image
+            src={imgUrl}
+            className="rounded-t-3xl object-fill"
+            layout="fill"
+            alt="blog post"
+          />
+        )}
       </div>
 
       <div className="flex p-6 justify-center flex-col gap-4 items-start self-stretch">
@@ -78,14 +86,7 @@ const Blogs = () => {
           <BlogComponent
             title="Fashion Trends in 2021"
             description="A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ..."
-            imgUrl={
-              <Image
-                src="/blog-img01.png"
-                fill
-                className="object-fill rounded-t-3xl"
-                alt="blog post"
-              />
-            }
+            imgUrl="/blog-img01.png"
             date="17 JAN 2021"
           />
         </SwiperSlide>
@@ -94,14 +95,7 @@ const Blogs = () => {
           <BlogComponent
             title="Style & Business"
             description="By March, the number of styles available in extended sizing will exceed 500, and new styles will be added each season ..."
-            imgUrl={
-              <Image
-                src="/blog-img01.png"
-                fill
-                className="object-fill rounded-t-3xl"
-                alt="blog post"
-              />
-            }
+            imgUrl="/blog-img01.png"
             date="02 JAN 2021"
           />
         </SwiperSlide>
@@ -110,14 +104,7 @@ const Blogs = () => {
           <BlogComponent
             title="Classic Jackets"
             description="While new jackets are being introduced as the new year approches, classic ones are in their class of their own (pun intended) ..."
-            imgUrl={
-              <Image
-                src="/blog-img01.png"
-                fill
-                className="object-fill rounded-t-3xl "
-                alt="blog post"
-              />
-            }
+            imgUrl="/blog-img01.png"
             date="02 JAN 2021"
           />
         </SwiperSlide>
@@ -126,14 +113,7 @@ const Blogs = () => {
           <BlogComponent
             title="Fashion Trends in 2021"
             description="A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ..."
-            imgUrl={
-              <Image
-                src="/blog-img01.png"
-                fill
-                className="object-fill rounded-t-3xl"
-                alt="blog post"
-              />
-            }
+            imgUrl="/blog-img01.png"
             date="02 JAN 2021"
           />
         </SwiperSlide>
@@ -142,14 +122,7 @@ const Blogs = () => {
           <BlogComponent
             title="Fashion Trends in 2021"
             description="A new year means new trends. Fashion experts are predicting that statement sleeves, earthy colors, and tracksuits will be all the rage ..."
-            imgUrl={
-              <Image
-                src="/blog-img01.png"
-                fill
-                className="object-fill rounded-t-3xl"
-                alt="blog post"
-              />
-            }
+            imgUrl="/blog-img01.png"
             date="02 JAN 2021"
           />
         </SwiperSlide>
