@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 interface WhyChooseUsProps {
   title: string;
   icon: React.ReactNode; // You can pass any ReactNode as an icon

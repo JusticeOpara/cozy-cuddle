@@ -16,7 +16,7 @@ const CustomComponent: React.FC<CustomComponentProps> = ({
   learnMoreButton,
 }) => {
   return (
-    <div className="w-full bg-gray-200 h-full flex flex-col justify-center gap-10">
+    <div className="w-full h-full flex flex-col justify-center gap-10">
       <div className="flex flex-col gap-[24px]">
         <h1 className="md:text-[48px] lg:w-[570px] text-4xl font-Montserrat font-medium md:leading-[60px] self-stretch">
           {title}

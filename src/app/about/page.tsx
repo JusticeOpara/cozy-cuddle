@@ -3,6 +3,7 @@ import React from "react";
 import { RiShirtLine, RiScissorsCutLine, RiTruckLine } from "react-icons/ri";
 import CustomComponent from "@/components/CustomComponent";
 import OurTeam from "@/components/OurTeam";
+import Pricing from "@/components/Pricing";
 
 const page = () => {
   return (
@@ -92,15 +93,7 @@ const page = () => {
       </div>
 
       {/* price */}
-      <div className="flex w-full h-full flex-col justify-center items-center gap-20 bg-red-100">
-        <div className="flex items-center flex-col justify-center">
-          <h1 className="text-center font-Montserrat font-medium text-5xl leading-[60px]">
-            Pricing
-          </h1>
-
-          <div className="divide-y  bg-black h-[2px] w-[200px]"></div>
-        </div>
-      </div>
+      <Pricing />
 
       {/* Our fabric section */}
       <div className="flex w-full h-full pr-[375px] items-center xl:gap-[30px] justify-end bg-slate-400">
@@ -118,14 +111,31 @@ const page = () => {
             description="It all starts with the fabric. Over the years we’ve become experts in dress shirt fabrics, working directly with some of the world’s greatest fabric mills across Europe, Japan and China. We’re also endlessly digging through the archives of Thomas Mason, Canclini, Albini and others searching for the perfect styles."
             subDescription="Increasingly, we’ve been designing our own custom fabrics, selecting the precise colors, patterns and construction to achieve the ideal look, comfort and performance. In all categories, we carry a wide range of fabric qualities from relatively basic constructions up to luxurious 120s two-ply sea-island cotton"
             buttonText="SHOP Fabrics"
-            learnMoreButton={null}
+            learnMoreButton=''
           />
         </div>
       </div>
 
-    
-    
       <OurTeam />
+      <div className="w-full h-[600px] flex pl-[375px] items-center bg-[#FFF7CC]">
+
+       <div className="h-[400px] flex w-[770px] justify-center items-start">
+      
+       <CustomComponent
+            title="Need Consultations ?"
+            description="Our team was handpicked for their understanding of materials, process and passion for fashion. 
+          Whether you are browsing our site or visiting our store, we are always willing to share our deep knowledge and understanding of our makers and their craft."
+            buttonText="Contact Us"
+            learnMoreButton=''
+          />
+       </div> 
+        
+
+        <div className="relative w-[745px] h-full">
+        <Image src="/consult.png" fill className="object-fill" alt="consultant"/>
+        </div>
+      
+      </div>
     </div>
   );
 };

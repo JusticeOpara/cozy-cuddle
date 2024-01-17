@@ -28,7 +28,7 @@ const TeamComponent: React.FC<OurTeamProps> = ({ name, title, imgUrl }) => {
         )}
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-6 self-stretch px-[40px] bg-slate-300 py-0">
+      <div className="flex flex-col items-center justify-center gap-6 self-stretch px-[40px] py-0">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-center font-medium text-[28px] leading-9 font-Montserrat">
             {name}
@@ -61,7 +61,7 @@ const OurTeam = () => {
         <div className="divide-y  bg-black h-[2px] w-[200px]"></div>
       </div>
 
-      <div className="h-full w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-[30px] bg-slate-400">
+      <div className="h-full w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-[30px]">
         <TeamComponent
           title="Chief Executive"
           imgUrl="/team-mate01.png"
