@@ -65,10 +65,22 @@ const page = () => {
               placeholder="********"
               required
             />
+            <label className="">Forgot Password?</label>
           </div>
+          <button className="flex py-3 px-5 justify-center items-center bg-[#FFD700] rounded-3xl text-base w-[160px] uppercase text-[#143A79] font-semibold">
+            Login
+          </button>
 
+          <div className="flex p-6 justify-center items-center gap-4 bg-[#F2F2F2] rounded-3xl">
+            <ul>
+              <span className="">Logging in Problem?</span>
+              <li className="text-base font-normal text-[#333]">1. Make sure to enter your correct Email or Password  </li>
+              <li className="text-base font-normal text-[#333]">2. Check our FAQs section</li>
+              <li className="text-base font-normal text-[#333]">3. Contact our Customer Service</li>
+            </ul>
+          </div>
         </div>
-        
+
         <div></div>
       </div>
     </div>

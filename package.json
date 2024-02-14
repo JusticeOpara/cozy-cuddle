@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.7",
     "firebase": "^10.7.1",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
+    "redux": "^5.0.1",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
