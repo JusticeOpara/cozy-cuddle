@@ -1,13 +1,16 @@
+'use client'
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 // import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 // import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { MdEmail } from 'react-icons/md';
-import { FaPerson } from 'react-icons/fa6';
+import { FaGoogle, FaPerson } from 'react-icons/fa6';
 import { useRegisterMutation } from '../../redux/auth/auth.api';
 import { IRegister } from '../../redux/auth/auth.types';
 import useActions from '../../redux/hooks/useActions';
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
+import { FaGoogleDrive } from 'react-icons/fa';
 
 const Register = () => {
   const [inputError, setInputError] = useState('');
@@ -54,46 +57,78 @@ const Register = () => {
   };
 
   return (
-    <div className='reg-login-page'>
-      <h2>Register</h2>
-      <form action='/register' onSubmit={formSubmitHandler}>
-        <div className='form-item'>
-          <div className='form-field with-icon'>
-            <input type='email' name='email' placeholder='Email:' />
-            <MdEmail />
+   
+    <div className="w-full lg:h-[75vh] flex items-center">
+      <div className="w-full h-full relative hidden lg:block">
+        <Image src="/fashion-store.png" className="" fill alt="Register pic" />
+      </div>
+      <div className="w-full h-full flex flex-col justify-center">
+        <form className="lg:p-44 p-20" onSubmit={formSubmitHandler} action='/register'>
+          <span className="text-sm font-normal"> LET`S GET YOU STARTED</span>
+
+          <h1 className="text-[25px] text-black">Create an Account</h1>
+
+          <div className="my-4">
+            <label
+              htmlFor="Email"
+              className="block mb-2 text-base font-medium text-[#4A5568]"
+            >
+              Email
+            </label>
+            <input type='email' name='email' placeholder='Email:'  className="border border-[#424242] outline-none text-[#4A5568] text-base rounded-lg  block w-full p-3 "/>
+           
           </div>
-        </div>
-        <div className='form-item'>
-          <div className='form-field with-icon'>
-            <input type='text' name='firstName' placeholder='FirstName:' />
-            <FaPerson />
+          <div className="my-4">
+            <label
+              htmlFor="firstName"
+              className="block mb-2 text-base font-medium text-[#4A5568]"
+            >
+              FirstName
+            </label>
+            <input type='text' name='firstName' placeholder='FirstName:' className="border border-[#424242] outline-none text-[#4A5568] text-base rounded-lg  block w-full p-3 "/>
+            
+           
           </div>
-        </div>
-        <div className='form-item'>
-          <div className='form-field with-icon'>
-            <input type='text' name='lastName' placeholder='LastName:' />
-            <FaPerson />
+          <div className="my-4">
+            <label
+              htmlFor="firstName"
+              className="block mb-2 text-base font-medium text-[#4A5568]"
+            >
+              LastName
+            </label>
+            <input type='text' name='lastName' placeholder='LastName:' className="border border-[#424242] outline-none text-[#4A5568] text-base rounded-lg  block w-full p-3 "/>
+            
+           
           </div>
-        </div>
-        <div className='form-item'>
-          <div className='form-field with-icon'>
-            <input type='password' name='password' placeholder='Password:' />
-            <MdEmail />
+
+          <div className="my-4">
+            <label
+              htmlFor="password"
+              className="block mb-2 text-base font-medium text-[#4A5568]"
+            >
+              Password
+            </label>
+            
+            <input type='password' name='password' placeholder='Password:'className="border text-[#4A5568] text-base rounded-lg  block w-full p-3 border-[#424242] outline-none" />
+            <div className='text-red-500'>{inputError}</div>
+          <div className='text-green-500'>{inputSuccess}</div>
           </div>
-          <div className='form-error'>{inputError}</div>
-          <div className='form-success'>{inputSuccess}</div>
-        </div>
-        <div className='form-submit'>
-          <button type='submit'>Sign Up</button>
-        </div>
-      </form>
-      <div className='change-sign-form'>
-        <p>
-          If you have an account? <Link href='/login'>Sign In here</Link>
-        </p>
-        <p>
-          Back to <Link href='/'>Home</Link>
-        </p>
+
+          <button
+            className="uppercase w-full h-[50px] bg-black text-white rounded-lg my-4"
+            type="submit"
+          >
+            GET STARTED
+          </button>
+
+          <div className="text-center text-sm font-normal mt-12">
+            Already have an account?{" "}
+            <Link href="/login" className="font-semibold underline">
+              LOGIN HERE
+            </Link> or Go back 
+            <Link href='/' className="font-semibold underline"> Home</Link>
+          </div>
+        </form>
       </div>
     </div>
   );

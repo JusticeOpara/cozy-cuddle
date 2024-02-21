@@ -7,6 +7,8 @@ import useActions from '../../redux/hooks/useActions';
 import Link from 'next/link';
 import { FaTwitter, FaFacebookF } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { FaGoogle } from 'react-icons/fa6';
 
 const Login = () => {
   const [inputError, setInputError] = useState('');
@@ -41,157 +43,60 @@ const Login = () => {
   };
 
   return (
-    <div className='reg-login-page'>
-      <h2>Login</h2>
-      <form action='/login' onSubmit={formSubmitHandler}>
-        <div className={inputError.length ? 'form-item error-item' : 'form-item'}>
-          <div className='form-field with-icon'>
-            <input type='text' name='username' placeholder='Username:' />
-            <FaTwitter />
-          </div>
-          <p className='api-sign-example'>api example: kminchelle</p>
+    <div className="w-full h-[75vh]  flex items-center mt-10 lg:mt-0">
+    <div className="w-full h-full relative hidden lg:block">
+      <Image src="/fashion-store.png" className="" fill alt="login pic" />
+    </div>
+    <div className="w-full h-full flex flex-col justify-center ">
+      <form action='/login' className="lg:p-44 p-20" onSubmit={formSubmitHandler}>
+        <span>WELCOME BACK</span>
+        <h1 className="text-[25px] font-normal text-black">
+          Log In to your Account
+        </h1>
+
+        <div className='my-4'>
+          <label
+            htmlFor="Name"
+            className="block mb-2 text-base font-medium text-[#4A5568]"
+          >
+            Name
+          </label>
+         
+          <input type='text' name='username' placeholder='Username:' className="border border-[#424242] outline-none text-[#4A5568] text-base rounded-lg  block w-full p-3"/>
         </div>
-        <div className={inputError.length ? 'form-item error-item' : 'form-item'}>
-          <div className='form-field with-icon'>
-            <input type='password' name='password' placeholder='Password:' />
-            <FaFacebookF />
-          </div>
-          <p className='api-sign-example'>api example: 0lelplR</p>
-          <div className='form-error'>{inputError}</div>
-          <div className='form-success'>{inputSuccess}</div>
+
+        <div className="my-4">
+          <label
+            htmlFor="Email"
+            className="block mb-2 text-base font-medium text-[#4A5568]"
+          >
+            Password
+          </label>
+         
+          <input type='password' name='password' placeholder='Password:' className="border border-[#424242] outline-none text-[#4A5568] text-base rounded-lg  block w-full p-3"/>
+          <div className='text-red-500'>{inputError}</div>
+         <div className='text-green-500'>{inputSuccess}</div>
         </div>
-        <div className='form-submit'>
-          <button type='submit'>Sign In</button>
+
+        <button
+          className="uppercase w-full h-[50px] bg-black text-white rounded-lg my-4"
+          type="submit"
+        >
+          Continue
+        </button>
+
+       
+       
+        <div className="text-center text-sm font-normal mt-12">
+          New User?{" "}
+          <Link href="/register" className="font-semibold underline">
+            SIGN UP HERE
+          </Link>
         </div>
       </form>
-      <div className='change-sign-form'>
-        <p>
-          If you haven&apos;t an account? <Link href='/register'>Sign Up here</Link>
-        </p>
-        <p>
-          Back to <Link href='/'>Home</Link>
-        </p>
-      </div>
     </div>
+  </div>
   );
 };
 
 export default Login;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-// import { IoLogoGoogle } from "react-icons/io";
-// import { FaTwitter, FaFacebookF } from "react-icons/fa";
-
-// const page = () => {
-
-
-//   return (
-//     <div className="inline-flex flex-col items-center gap-10 px-[357px] w-full h-full ">
-//       <div className="flex w-full items-start gap-6 bg-slate-400">
-//         <button className="flex bg-[#DB4437] rounded-3xl px-5 py-3 justify-center items-center gap-2 flex-1">
-//           <IoLogoGoogle size={24} />
-//           <span className="text-base font-Barlow font-semibold uppercase text-white">
-//             With Google
-//           </span>
-//         </button>
-//         <button className="flex bg-[#4267B2] rounded-3xl px-5 py-3 justify-center items-center gap-2 flex-1">
-//           <FaFacebookF size={24} />
-//           <span className="text-base font-Barlow font-semibold uppercase text-white">
-//             With Facebook
-//           </span>
-//         </button>
-//         <button className="flex bg-[#1DA1F2] rounded-3xl px-5 py-3 justify-center items-center gap-2 flex-1">
-//           <FaTwitter size={24} color="white" />
-//           <span className="text-base font-Barlow font-semibold uppercase text-white">
-//             With Twitter
-//           </span>
-//         </button>
-//       </div>
-
-//       <div className="flex items-center gap-6 w-full ">
-//         <div className="divide-y bg-black h-[1px] w-full "></div>
-//         OR
-//         <div className="divide-y bg-black h-[1px] w-full "></div>
-//       </div>
-
-//       <div className="flex justify-center items-start gap-20 self-stretch">
-//         <div>
-//           <h1 className="text-black font-Montserrat text-[28px]">Login</h1>
-//           <p className="text-[#4F4F4F] font-Barlow text-base ">
-//             Register with us for a faster checkout, to track the status of your
-//             order and more
-//           </p>
-
-//           <div>
-//             <h1 className="text-[#333] font-Montserrat text-sm font-medium pl-2">
-//               Email
-//             </h1>
-
-//             <input
-//               type="email"
-//               name="Email"
-//               className="flex items-center p-3 rounded-xl w-full h-[48px] border outline-none text-base font-Barlow text-[#333]"
-//               placeholder="justiceopara33@gmail.com"
-//               required
-//             />
-//           </div>
-//           <div>
-//             <h1 className="text-[#333] font-Montserrat text-sm font-medium pl-2">
-//               Password
-//             </h1>
-
-//             <input
-//               type="password"
-//               name="Password"
-//               className="flex items-center p-3 rounded-xl w-full h-[48px] border outline-none text-base font-Barlow text-[#333]"
-//               placeholder="********"
-//               required
-//             />
-//             <label className="">Forgot Password?</label>
-//           </div>
-//           <button className="flex py-3 px-5 justify-center items-center bg-[#FFD700] rounded-3xl text-base w-[160px] uppercase text-[#143A79] font-semibold">
-//             Login
-//           </button>
-
-//           <div className="flex p-6 justify-center items-center gap-4 bg-[#F2F2F2] rounded-3xl">
-//             <ul>
-//               <span className="">Logging in Problem?</span>
-//               <li className="text-base font-normal text-[#333]">1. Make sure to enter your correct Email or Password </li>
-//               <li className="text-base font-normal text-[#333]">2. Check our FAQs section</li>
-//               <li className="text-base font-normal text-[#333]">3. Contact our Customer Service</li>
-//             </ul>
-//           </div>
-//         </div>
-
-//         <div></div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default page;
