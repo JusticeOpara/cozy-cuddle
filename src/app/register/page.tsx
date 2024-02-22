@@ -1,16 +1,13 @@
 'use client'
+
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
-// import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { MdEmail } from 'react-icons/md';
-import { FaGoogle, FaPerson } from 'react-icons/fa6';
 import { useRegisterMutation } from '../../redux/auth/auth.api';
 import { IRegister } from '../../redux/auth/auth.types';
 import useActions from '../../redux/hooks/useActions';
 import { useRouter } from "next/navigation";
 import Image from 'next/image';
-import { FaGoogleDrive } from 'react-icons/fa';
+
 
 const Register = () => {
   const [inputError, setInputError] = useState('');

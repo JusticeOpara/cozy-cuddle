@@ -46,6 +46,8 @@ export const authSlice = createSlice({
 export const {setAuthToken, setAuthUserId, setUser,logout} =  authSlice.actions
 export default authSlice.reducer
 
-export const useAuthTokenSelector = () => useTypedSelector((state:RootState )=> state.auth.token)
-export const useAuthUserIdSelector = () => useTypedSelector((state: RootState)=> state.auth.userId)
-export const useAuthUserSelector  = ()=> useTypedSelector((state: RootState) => state.auth.user)
+export const useAuthTokenSelector = () => useTypedSelector((state: RootState) => state.auth.token);
+export const useAuthUserIdSelector = () =>
+  useTypedSelector((state: RootState) => state.auth.userId);
+export const useAuthUserSelector = () => useTypedSelector((state: RootState) => state.auth.user);
+

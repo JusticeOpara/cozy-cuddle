@@ -16,5 +16,5 @@ export const baseApi = createApi({
       return headers;
     },
   }),
-  endpoints: (build) => ({}), // 'eslint-disable-line @typescript-eslint/no-unused-vars'
+  endpoints: (build) => ({}), // 'eslint-disable-line @typescript-eslint/no-unused-vars
 });
