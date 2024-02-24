@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "./index";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const BASE_URL = "https://dummyjson.com";
 
@@ -16,5 +16,6 @@ export const baseApi = createApi({
       return headers;
     },
   }),
-  endpoints: (build) => ({}), // 'eslint-disable-line @typescript-eslint/no-unused-vars
+
+  endpoints: (build) => ({}),
 });

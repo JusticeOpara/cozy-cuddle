@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { FaPlayCircle, FaRegHeart, FaRegStar } from "react-icons/fa";
@@ -11,9 +12,16 @@ import { Products, Fabrics } from "@/utills/data";
 import CustomComponent from "@/components/CustomComponent";
 import BenfitsComponent from "@/components/Benfits";
 import Blogs from "@/components/Blogs";
+import ProductsList from "@/components/ProductsList";
+import { useProductsSelector } from "@/redux/products/product.slice";
+import { useGetProductsQuery } from "@/redux/products/product.api";
+// import { IProduct } from '../../../redux/products/product.types';
+// import AddToCartBtn from '../../cart/components/AddToCartBtn';
 
-console.log(Products, "--products");
+
+
 const Home: React.FC = () => {
+
   const [hoveredStates, setHoveredStates] = useState<boolean[]>(
     Array(Products.length).fill(false)
   );
@@ -44,6 +52,8 @@ const Home: React.FC = () => {
     });
   };
   console.log(hoveredStates, "--hoverStates");
+  const products = useProductsSelector();
+  console.log(products, "--products");
 
   return (
     <div className="flex w-full h-full flex-col lg:gap-60 gap-28 px-8 lg:px-0 mb-28">
@@ -161,7 +171,7 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-
+        <ProductsList products={products} />
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] ">
           {Products?.map((data, index: number) => (
             <div
@@ -250,7 +260,7 @@ const Home: React.FC = () => {
           description="Stay ahead of the competitive tailoring business using our shirt
         customization tool. It allows your customers to design their shirts
         themselves with ease"
-        subDescription={null}
+          subDescription={null}
           buttonText="Customize Shirts"
           learnMoreButton="Learn More"
         />
@@ -414,16 +424,16 @@ const Home: React.FC = () => {
                 fill
                 alt="perfume accessories"
               />
-                  <div className=" flex flex-col items-start gap-10 absolute w-full px-10 bottom-[40px]">
-                  <span className="text-5xl font-medium leading-[60px] font-Montserrat text-white items-stretch ">
-                    {" "}
-                    Perfumes
-                  </span>
-                  <div className="divide-y bg-white h-[2px] w-[200px]"></div>
-                  <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-white gap-2 border-white rounded-[800px] font-Barlow font-medium">
-                    learn more
-                  </button>
-                </div>
+              <div className=" flex flex-col items-start gap-10 absolute w-full px-10 bottom-[40px]">
+                <span className="text-5xl font-medium leading-[60px] font-Montserrat text-white items-stretch ">
+                  {" "}
+                  Perfumes
+                </span>
+                <div className="divide-y bg-white h-[2px] w-[200px]"></div>
+                <button className="flex py-3 px-5 justify-center text-base items-center bg-inherit uppercase border text-white gap-2 border-white rounded-[800px] font-Barlow font-medium">
+                  learn more
+                </button>
+              </div>
             </div>
           </div>
         </div>

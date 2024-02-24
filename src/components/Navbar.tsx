@@ -10,12 +10,14 @@ import { MdForwardToInbox, MdOutlinePages, MdLogin } from "react-icons/md";
 import { FaPhoneAlt, FaHome, FaShoppingCart } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import Image from "next/image";
-import { useAuthUserSelector } from '../redux/auth/auth-slice';
+import { useCheckAuthenticated } from "../hooks/useAuth";
+import { useAuthUserSelector } from "../redux/auth/auth.slice";
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExapanded] = useState(false);
   const user = useAuthUserSelector();
-  
+  const { isAuthenticated } = useCheckAuthenticated();
+  console.log(isAuthenticated, "--isAuthenticated");
 
   const handleNav = () => {
     setIsNavExapanded(!isNavExpanded);
@@ -32,7 +34,8 @@ const Navbar = () => {
             </li>
             <li className="flex items-center gap-1">
               {" "}
-              <MdForwardToInbox size={16} /> <span> {user ? user.firstName : 'info@greelogix.com'}</span>
+              <MdForwardToInbox size={16} />{" "}
+              <span> {user ? user.firstName : "info@greelogix.com"}</span>
             </li>
             <li className="flex items-center gap-1">
               <FaPhoneAlt size={16} /> <span>+92 333 6527366</span>
@@ -94,20 +97,34 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="md:inline-flex items-center flex-end gap-6 hidden">
+            <Link href="/search">
             <CiSearch size={32} />
+            </Link>
+        
             <RiShoppingBagLine size={32} />
-            <Link href="/register">
-              <button className="flex py-3 px-5 items-center bg-[#143A79] rounded-[800px] text-base uppercase font-semibold font-Barlow">
-                Register
-              </button>
-            </Link>
 
-            <Link href="/login">
-              <button className="flex py-3 px-5 items-center bg-white rounded-[800px] text-base uppercase font-semibold border-[#143A79] border font-Barlow">
-                Login
-              </button>
-            </Link>
+            {isAuthenticated && (
+              <>
+              <h1 className=""> Welcome {user ? user.firstName : "Dear"} </h1>
+
+              <Link href="/login">
+                <button className="flex py-3 px-5 items-center bg-white rounded-[800px] text-base uppercase font-semibold border-[#143A79] border font-Barlow">
+                  Login
+                </button>
+                </Link>
+              </>
+             
+              
+            )}
+            {!isAuthenticated && (
+              <Link href="/register">
+                <button className="flex py-3 px-5 items-center bg-[#143A79] rounded-[800px] text-base uppercase font-semibold font-Barlow">
+                  Register
+                </button>
+              </Link>
+            )}
           </div>
+
           {/* small screen size */}
           <div
             onClick={handleNav}

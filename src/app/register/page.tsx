@@ -26,6 +26,33 @@ const Register = () => {
     return true;
   };
 
+  // const formSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(e.currentTarget) as Iterable<[IRegister]>;
+  //   const entries: IRegister = Object.fromEntries(formData);
+
+  //   if (!isValidForm(entries)) return;
+
+  //   await register(entries)
+  //     .unwrap()
+  //     .then(data => {
+  //       const { token } = data;
+  //       setAuthToken({ token });
+  //       setUser(data);
+
+  //       setInputError('');
+  //       setInputSuccess('Registration successful');
+
+  //       setTimeout(() => {
+  //         router.push('/');
+  //       }, 1000);
+  //     })
+  //     .catch(err => {
+  //       setInputError(err.data.message);
+  //     });
+  // };
+
   const formSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -34,24 +61,27 @@ const Register = () => {
 
     if (!isValidForm(entries)) return;
 
-    await register(entries)
-      .unwrap()
-      .then(data => {
-        const { token } = data;
-        setAuthToken({ token });
-        setUser(data);
+    try {
+      const data = await register(entries).unwrap();
+      const { token } = data;
 
-        setInputError('');
-        setInputSuccess('Registration successful');
+      // Store token in localStorage
+      localStorage.setItem('authToken', token);
 
-        setTimeout(() => {
-          router.push('/');
-        }, 1000);
-      })
-      .catch(err => {
-        setInputError(err.data.message);
-      });
+      setAuthToken({ token });
+      setUser(data);
+
+      setInputError('');
+      setInputSuccess('Registration successful');
+
+      setTimeout(() => {
+        router.push('/');
+      }, 1000);
+    } catch (err) {
+      setInputError(err.data.message);
+    }
   };
+
 
   return (
    

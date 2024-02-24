@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { authSlice } from "../auth/auth-slice";
-import { cartSlice } from "../cart/cart-slice";
+import { authSlice } from "../auth/auth.slice";
+import { cartSlice } from "../cart/cart.slice";
 
 const AllActions = {
   ...authSlice.actions,
