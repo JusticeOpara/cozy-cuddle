@@ -1,12 +1,12 @@
 import { RootState } from "./index";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const BASE_URL = "https://dummyjson.com";
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
+  refetchOnFocus: true,
   baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
+    baseUrl:  "https://dummyjson.com",
 
     prepareHeaders: (headers, api) => {
       const { auth } = api.getState() as RootState;
@@ -17,5 +17,5 @@ export const baseApi = createApi({
     },
   }),
 
-  endpoints: (build) => ({}),
+  endpoints: (build) => ({}),// keslint-disable-line @typescript-eslint/no-unused-vars
 });

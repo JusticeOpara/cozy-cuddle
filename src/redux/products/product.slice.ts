@@ -4,6 +4,7 @@ import { RootState } from '../index';
 import { useTypedSelector } from '../hooks/useTypeSelector';
 import { IProduct, ICategory } from './product.types';
 
+
 interface ProductState {
   products: IProduct[];
   product: IProduct | null;

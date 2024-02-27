@@ -171,7 +171,7 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-        <ProductsList products={products} />
+        <ProductsList products={products.slice(0,8)} />
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] ">
           {Products?.map((data, index: number) => (
             <div
