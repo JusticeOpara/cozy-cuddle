@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import useActions from '../../redux/hooks/useActions';
-import { useProductByIdSelector } from '../../redux/products/product.slice';
+import useActions from '../redux/hooks/useActions';
+import { useProductByIdSelector } from '@/redux/products/product.slice';
 
 interface IAddToCartBtnProps {
   id: number;

@@ -1,31 +1,38 @@
+"use client";
 
+import { FC ,useState} from "react";
+import Link from "next/link";
+import { CiStar } from "react-icons/ci";
+import { IProduct } from "../redux/products/product.types";
+import AddToCartBtn from "./AddToCartBtn";
+import { AiOutlineShopping } from "react-icons/ai";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
-import { FC } from 'react';
-import Link from 'next/link';
-import { CiStar } from 'react-icons/ci';
-import { IProduct } from '../redux/products/product.types';
-import AddToCartBtn from '../app/cart/AddToCartBtn';
+const ProductItem: FC<IProduct> = ({ id, title, price, rating, thumbnail }) => {
+  
 
-const ProductItem: FC<IProduct> = ({ id, title, price, rating, thumbnail }) => (
-  <div className='product-item'>
-    <div className='product-pic'>
-      {/* <Link href={`/products/${String(id)}`}> */}
-        <img src={thumbnail} alt={title} />
-      {/* </Link> */}
-    </div>
-    <div className='product-title'>
-      {title}
-      {/* <Link href={`/products/${String(id)}`}>{title}</Link> */}
-    </div>
-    <div className='product-price'>{price}$</div>
-    <div className='product-info'>
-      <div className='product-rating'>
-        <CiStar />
-        {rating}
+  return (
+    <div
+      key={id}
+      className="bg-white h-[500px] lg:h-full w-full flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79] cursor-pointer">
+      
+      <div className="flex items-center justify-center h-full w-full bg-[#F2F2F2] rounded-t-3xl relative transition">
+       
+         <img src={thumbnail} alt={title} className="h-full w-full object-cover rounded-t-3xl"/> 
       </div>
-      <AddToCartBtn id={id}>Buy</AddToCartBtn>
+     
+
+      <div className="flex p-6 justify-center flex-col gap-4 items-start self-stretch">
+        <span className="text-xl font-Barlow font-semibold">{title}</span>
+
+        <span className="text-base font-Barlow font-bold">${price}</span>
+
+        <span className="font-Montserrat font-medium text-xl text-black flex items-center">
+         <CiStar/> {rating}
+        </span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ProductItem;

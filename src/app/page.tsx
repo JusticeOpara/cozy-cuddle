@@ -13,48 +13,27 @@ import CustomComponent from "@/components/CustomComponent";
 import BenfitsComponent from "@/components/Benfits";
 import Blogs from "@/components/Blogs";
 import ProductsList from "@/components/ProductsList";
+import { useGetCategoriesQuery } from "@/redux/products/product.api";
 import { useProductsSelector } from "@/redux/products/product.slice";
 import { useGetProductsQuery } from "@/redux/products/product.api";
-// import { IProduct } from '../../../redux/products/product.types';
-// import AddToCartBtn from '../../cart/components/AddToCartBtn';
+import CategoriesList from "@/components/CartgoriesList";
 
 
 
 const Home: React.FC = () => {
-
-  const [hoveredStates, setHoveredStates] = useState<boolean[]>(
-    Array(Products.length).fill(false)
-  );
-  const [favorite, setFavorite] = useState<{ [id: number]: boolean }>({});
-
-  const handleFavourited = (index: number) => {
-    setFavorite((prevFavorites) => ({ ...prevFavorites, [index]: true }));
-  };
-
-  const handleUnfavourite = (index: number) => {
-    setFavorite((prevFavorites) => ({ ...prevFavorites, [index]: false }));
-  };
-
-  const handleHover = (index: number) => {
-    setHoveredStates((prevStates) => {
-      const updatedStates = [...prevStates];
-      updatedStates[index] = true;
-
-      return updatedStates;
-    });
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setHoveredStates((prevStates) => {
-      const updatedStates = [...prevStates];
-      updatedStates[index] = false;
-      return updatedStates;
-    });
-  };
-  console.log(hoveredStates, "--hoverStates");
+  const { data: categories } = useGetCategoriesQuery();
+  const [activePage, setActivePage] = useState(1);
+  const {data,error,isLoading} = useGetProductsQuery({
+    limit: 12,
+    skip: (activePage - 1) * 10,
+  });
   const products = useProductsSelector();
-  console.log(products, "--products");
+  console.log(data?.products,"--products")
+  console.log(categories,"---catgories data")
 
+
+  
+  
   return (
     <div className="flex w-full h-full flex-col lg:gap-60 gap-28 px-8 lg:px-0 mb-28">
       <div className="w-full h-full">
@@ -94,7 +73,8 @@ const Home: React.FC = () => {
         </div>
 
         {/*Brand  */}
-
+        
+       
         <div className="w-full lg:h-[320px] lg:p-20 p-6 flex justify-between items-center bg-[#F2F2F2] gap-6">
           <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
             <Image
@@ -171,61 +151,56 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-        <ProductsList products={products.slice(0,8)} />
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] ">
-          {Products?.map((data, index: number) => (
-            <div
-              key={data.id}
-              className="bg-white h-[500px] lg:h-full w-full flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79] cursor-pointer"
-              onMouseEnter={() => handleHover(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
-            >
-              <div className="flex items-center justify-center h-full w-full py-[9px] px-[13px] bg-[#F2F2F2] rounded-t-3xl relative transition">
-                <Image src={data.imgUrl} fill objectFit="cover" alt="shirt" />
-              </div>
-              {/* hover on the product it should pop the container in the screen */}
-              {hoveredStates[index] && (
-                <div className="inline-flex justify-center items-center gap-2 w-[242px] h-[48px] absolute pt-28">
-                  <div className="flex w-[48px] h-[48px] bg-white justify-center items-center rounded-[24px]">
-                    <AiOutlineShopping size={24} />
-                  </div>
-                  <button className="flex py-[12px] px-[20px] justify-center items-center text-[#143A79] font-Barlow text-base font-semibold uppercase text-center bg-[#FFD700] rounded-[800px]">
-                    Customize
-                  </button>
-                  <div className="flex w-[48px] h-[48px] bg-white justify-center items-center rounded-[24px]">
-                    {favorite[index] ? (
-                      <MdFavorite
-                        onClick={() => handleUnfavourite(index)}
-                        size={24}
-                      />
-                    ) : (
-                      <MdFavoriteBorder
-                        onClick={() => handleFavourited(index)}
-                        size={24}
-                      />
-                    )}
-                  </div>
-                </div>
-              )}
-
-              <div className="flex p-6 justify-center flex-col gap-6 items-start self-stretch">
-                <span className="text-base font-Barlow font-semibold">
-                  {data.title}
-                </span>
-
-                <span className="font-Montserrat font-medium text-xl text-black">
-                  {data.text}
-                </span>
-                <span className="text-base font-Barlow font-bold">
-                  ${data.price}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+       
+        <ProductsList products={data?.products.slice(0,6)} />
+      
+       
+       
       </div>
 
-      {/* Custom shirt */}
+    
+
+      {/* Custom thobe */}
+      <div className="lg:h-[800px] w-full flex lg:pl-[375px] items-center gap-[30px] bg-slate-400"> 
+        <CustomComponent
+          title="Custom Thobe"
+          description="Over rich 9+ years of experience, Thobe Customization Software has benefited numerous clients in Arab countries. Its state-of-art technology meets the growing trend and desires of people"
+          subDescription={null}
+          buttonText="Customize thobe"
+          learnMoreButton="Learn More"
+        />
+        {/*  */}
+        <div className="w-[965px] h-full lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
+          <div className="w-[700px] h-full bg-black relative flex-shrink-0">
+            <Image
+              src="/img-collage06.png"
+              width={388}
+              height={447}
+              className="absolute right-[12%] top-[18%] tranosform"
+              alt="img collage"
+            />
+
+            <Image
+              src="/img-collage05.png"
+              className="absolute  top-[0%] left-[0%] hidden lg:block"
+              width={517}
+              height={358}
+              alt="img collage"
+            />
+
+            <Image
+              src="/img-collage03.png"
+              className="absolute z-10 bottom-[18%] left-[18%] hidden lg:block"
+              width={321}
+              height={388}
+              alt="img collage"
+            />
+          </div>
+        </div>
+       </div> 
+
+
+         {/* Custom shirt */}
       <div className="lg:h-[800px] w-full flex lg:pr-[375px] items-center gap-[30px] bg-red-200">
         <div className="w-[965px] h-full  lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
           <div className="w-[700px] h-full relative flex-shrink-0">
@@ -266,45 +241,6 @@ const Home: React.FC = () => {
         />
       </div>
 
-      {/* Custom thobe */}
-      <div className="lg:h-[800px] w-full flex lg:pl-[375px] items-center gap-[30px] bg-slate-400">
-        <CustomComponent
-          title="Custom Thobe"
-          description="Over rich 9+ years of experience, Thobe Customization Software has benefited numerous clients in Arab countries. Its state-of-art technology meets the growing trend and desires of people"
-          subDescription={null}
-          buttonText="Customize thobe"
-          learnMoreButton="Learn More"
-        />
-        {/*  */}
-        <div className="w-[965px] h-full lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
-          <div className="w-[700px] h-full bg-black relative flex-shrink-0">
-            <Image
-              src="/img-collage06.png"
-              width={388}
-              height={447}
-              className="absolute right-[12%] top-[18%] tranosform"
-              alt="img collage"
-            />
-
-            <Image
-              src="/img-collage05.png"
-              className="absolute  top-[0%] left-[0%] hidden lg:block"
-              width={517}
-              height={358}
-              alt="img collage"
-            />
-
-            <Image
-              src="/img-collage03.png"
-              className="absolute z-10 bottom-[18%] left-[18%] hidden lg:block"
-              width={321}
-              height={388}
-              alt="img collage"
-            />
-          </div>
-        </div>
-      </div>
-
       {/* explore fabrics */}
 
       <div className="w-full lg:h-[846px] flex flex-col lg:flex-row-reverse lg:px-20 justify-center gap-[30px] bg-blue-300 ">
@@ -325,37 +261,9 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-[30px] ">
-          {Fabrics?.map((data) => (
-            <div
-              key={data.id}
-              className="bg-[#fff] h-[500px] lg:h-full flex flex-col items-center flex-1 rounded-3xl border border-[#E0E0E0] hover:shadow-2xl shadow-[#143A79]"
-            >
-              <div className="flex items-center justify-center h-full w-full py-[9px] px-[13px] bg-[#F2F2F2] rounded-t-3xl relative">
-                <Image
-                  src={data.imgUrl}
-                  fill
-                  objectFit="cover"
-                  className="rounded-t-3xl transition"
-                  alt="shirt"
-                />
-              </div>
-
-              <div className="flex p-6  justify-center flex-col gap-6 items-start self-stretch">
-                <span className="text-base font-Barlow font-semibold">
-                  {data.title}
-                </span>
-                <span className="font-Montserrat self-stretch font-medium text-xl text-black">
-                  {data.text}
-                </span>
-                <span className="text-base font-Barlow font-semibold">
-                  ${data.price}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <CategoriesList categories={categories} />
+      
+        
       </div>
 
       {/* Accessories */}
