@@ -9,7 +9,7 @@ interface Props {
 const CategoriesList: FC<Props> = ({ categories }) => (
   <ul className='categories-list'>
     {categories?.map(category => (
-      <li key={category.id}>
+      <li key={category.id} className=''>
         <Link href={`/products/categories/${category.name}`}>{category.name}</Link>
       </li>
     ))}

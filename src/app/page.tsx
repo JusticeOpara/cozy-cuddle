@@ -153,8 +153,6 @@ const Home: React.FC = () => {
         </div>
        
         <ProductsList products={data?.products.slice(0,6)} />
-      
-       
        
       </div>
 
@@ -261,8 +259,8 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-        <CategoriesList categories={categories} />
-      
+        {/* <CategoriesList categories={categories} /> */}
+         <ProductsList products={data?.products.slice(0,8)} /> 
         
       </div>
 
