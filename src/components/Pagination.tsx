@@ -20,11 +20,11 @@ const Pagination: FC<IPaginationProps> = ({ total, limit, activePage, setActiveP
   const pages = getPages(total, limit);
 
   return (
-    <div className='flex justify-center my-5 bg-red-400 '>
+    <div className='flex justify-center my-5'>
       {pages.map(page => (
         <div
           key={page}
-          className={`leading-[1px] py-1 px-2  bg-lime-300 cursor-pointer m-[2px] ${activePage === page ? ' is-active' : ''}`}
+          className={`leading-[1px] py-2 px-2  bhg-[#E9F0FB] bg-blue-300 cursor-pointer m-[2px] rounded ${activePage === page ? ' is-active' : ''}`}
           onClick={() => setActivePage(page)}
           onKeyDown={() => setActivePage(page)}
           role='button'
@@ -38,11 +38,6 @@ const Pagination: FC<IPaginationProps> = ({ total, limit, activePage, setActiveP
 };
 
 
-// .page-item.is-active,
-// .page-item:hover {
-//   background-color: var(--primary);
-//   border-radius: 50%;
-//   color: #fff;
-// }
+
 
 export default Pagination;

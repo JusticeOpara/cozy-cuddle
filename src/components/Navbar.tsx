@@ -12,6 +12,7 @@ import { CiSearch } from "react-icons/ci";
 import Image from "next/image";
 import { useCheckAuthenticated } from "../hooks/useAuth";
 import { useAuthUserSelector } from "../redux/auth/auth.slice";
+import { useCartProductsSelector } from "@/redux/cart/cart.slice";
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExapanded] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
   const handleNav = () => {
     setIsNavExapanded(!isNavExpanded);
   };
-
+  const products = useCartProductsSelector()
   return (
     <ClientOnly>
       <nav className="w-full">
@@ -98,23 +99,25 @@ const Navbar = () => {
           </div>
           <div className="md:inline-flex items-center flex-end gap-6 hidden">
             <Link href="/search">
-            <CiSearch size={32} />
+              <CiSearch size={32} />
             </Link>
-        
-            <RiShoppingBagLine size={32} />
+
+            <Link href='/cart' className="flex flex-row-reverse">
+            <span className='cart-products-count'>{products.length}</span>
+              <RiShoppingBagLine size={32} />
+             
+            </Link>
 
             {isAuthenticated && (
               <>
-              <h1 className=""> Welcome {user ? user.firstName : "Dear"} </h1>
+                <h1 className=""> Welcome {user ? user.firstName : "Dear"} </h1>
 
-              <Link href="/login">
-                <button className="flex py-3 px-5 items-center bg-white rounded-[800px] text-base uppercase font-semibold border-[#143A79] border font-Barlow">
-                  Login
-                </button>
+                <Link href="/login">
+                  <button className="flex py-3 px-5 items-center bg-white rounded-[800px] text-base uppercase font-semibold border-[#143A79] border font-Barlow">
+                    Login
+                  </button>
                 </Link>
               </>
-             
-              
             )}
             {!isAuthenticated && (
               <Link href="/register">
