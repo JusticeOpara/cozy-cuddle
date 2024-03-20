@@ -7,6 +7,7 @@ import RemoveFromCartBtn from './RemoveFromCartBtn';
 import { MdDelete } from 'react-icons/md';
 
 const CartItem: FC<ICartProducts> = ({ product: { price, thumbnail, title }, quantity, id }) => {
+  
   const { deleteCartItem } = useActions();
 
   return (

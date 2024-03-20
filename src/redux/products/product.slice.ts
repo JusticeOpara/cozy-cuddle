@@ -41,3 +41,4 @@ export const useProductsSelector = () =>
 
 export const useProductByIdSelector = (id: number | string) =>
   useTypedSelector((state: RootState) => state.product.products.find(product => product.id === id));
+
