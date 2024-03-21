@@ -1,7 +1,6 @@
-'use client'
-import { FC } from 'react';
-import useActions from '@/redux/hooks/useActions';
-import { useProductByIdSelector } from '@/redux/products/product.slice';
+import { FC } from "react";
+import useActions from "@/redux/hooks/useActions";
+import { useProductByIdSelector } from "@/redux/products/product.slice";
 
 interface IAddToCartBtnProps {
   id: number;
@@ -12,13 +11,12 @@ const AddToCartBtn: FC<IAddToCartBtnProps> = ({ id, children }) => {
   const { addToCartProduct } = useActions();
 
   const product = useProductByIdSelector(id);
-  console.log(product,'PRODUCT ID SELECT')
+  console.log(product, "PRODUCT ID SELECT");
 
+  const { title, price, thumbnail } = product! || {};
 
   const addToCartHandler = (productId: number) => {
     if (product) {
-      const { title, price, thumbnail } = product;
-
       const cartProduct = {
         id: productId,
         quantity: 1,
@@ -36,11 +34,10 @@ const AddToCartBtn: FC<IAddToCartBtnProps> = ({ id, children }) => {
     }
   };
 
-
   return (
     <button
-      className='py-1 px-2 rounded-lg bg-[#FFD701] font-Montserrat font-semibold text-base'
-      type='button'
+      className="py-1 px-2 rounded-lg bg-[#FFD701] font-Montserrat font-semibold text-base"
+      type="button"
       data-product-id={id}
       onClick={() => addToCartHandler(id)}
     >

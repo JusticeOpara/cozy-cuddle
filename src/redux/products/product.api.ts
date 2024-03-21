@@ -40,4 +40,4 @@ export const {
   useSearchProductsQuery,
   useLazySearchProductsQuery,
 } = productApi;
-console.log(productApi,"--baseApijkjkljkljljjkjkljkl")
+

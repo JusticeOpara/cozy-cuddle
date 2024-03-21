@@ -18,6 +18,8 @@ import { useProductsSelector } from "@/redux/products/product.slice";
 import { useGetProductsQuery } from "@/redux/products/product.api";
 import CategoriesList from "@/components/CartgoriesList";
 import Accessories from "@/components/Accessories";
+import Loading from "@/components/Loading";
+import ErrorMessage from "@/components/Error";
 
 
 
@@ -32,6 +34,9 @@ const Home: React.FC = () => {
   console.log(data?.products,"--products")
   console.log(categories,"---catgories data")
 
+  if (isLoading) return <Loading/>;
+  if (error) return <ErrorMessage error={error} />;
+  if (!categories) return <p>No data</p>;
 
   
   
@@ -260,8 +265,8 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-        {/* <CategoriesList categories={categories} /> */}
-         <ProductsList products={data?.products.slice(0,8)} /> 
+       <CategoriesList categories={categories} /> 
+         {/* <ProductsList products={data?.products.slice(0,8)} />  */}
         
       </div>
 

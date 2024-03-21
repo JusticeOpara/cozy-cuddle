@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC } from "react";
 import Link from "next/link";
 import { IProduct } from "@/redux/products/product.types";
 import AddToCartBtn from "./AddToCartBtn";
@@ -26,7 +26,7 @@ const ProductItem: FC<IProduct> = ({ id, title, price, rating, thumbnail }) => {
       </Link>
 
       <div className="flex p-6 justify-center flex-col gap-4 items-start self-stretch">
-        <span className="text-xl font-Barlow font-semibold">{title}</span>
+        <Link href={`/products/${String(id)}`} className="text-xl font-Barlow font-semibold">{title}</Link>
 
         <span className="text-base font-Barlow font-bold">${price}</span>
 

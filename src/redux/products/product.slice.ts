@@ -9,12 +9,14 @@ interface ProductState {
   products: IProduct[];
   product: IProduct | null;
   categories: ICategory[];
+ 
 }
 
 const initialState: ProductState = {
   products: [],
   product: null,
   categories: [],
+
 };
 
 export const productSlice = createSlice({
@@ -30,6 +32,7 @@ export const productSlice = createSlice({
     setCategories: (state: ProductState, action: PayloadAction<ICategory[]>) => {
       state.categories = action.payload; // eslint-disable-line no-param-reassign
     },
+   
   },
 });
 
@@ -41,4 +44,5 @@ export const useProductsSelector = () =>
 
 export const useProductByIdSelector = (id: number | string) =>
   useTypedSelector((state: RootState) => state.product.products.find(product => product.id === id));
+
 

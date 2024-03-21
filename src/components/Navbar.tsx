@@ -119,6 +119,7 @@ const Navbar = () => {
                 </Link>
               </>
             )}
+            
             {!isAuthenticated && (
               <Link href="/register">
                 <button className="flex py-3 px-5 items-center bg-[#143A79] rounded-[800px] text-base uppercase font-semibold font-Barlow">
