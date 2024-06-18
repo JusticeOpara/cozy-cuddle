@@ -16,7 +16,7 @@ const productApi = baseApi
         query: ({ id }) => `/products/${id}`,
       }),
       getCategories: build.query<ICategory[], void>({
-        query: () => '/products/categories',
+        query: () => '/products/category-list',
         transformResponse: (response: string[]) =>
           response.map(category => ({
             id: nanoid(),

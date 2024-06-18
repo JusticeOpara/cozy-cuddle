@@ -21,25 +21,21 @@ import Accessories from "@/components/Accessories";
 import Loading from "@/components/Loading";
 import ErrorMessage from "@/components/Error";
 
-
-
 const Home: React.FC = () => {
   const { data: categories } = useGetCategoriesQuery();
   const [activePage, setActivePage] = useState(1);
-  const {data,error,isLoading} = useGetProductsQuery({
+  const { data, error, isLoading } = useGetProductsQuery({
     limit: 12,
     skip: (activePage - 1) * 10,
   });
   const products = useProductsSelector();
-  console.log(data?.products,"--products")
-  console.log(categories,"---catgories data")
+  console.log(data?.products, "--products");
+  console.log(categories, "---catgories data");
 
-  if (isLoading) return <Loading/>;
+  if (isLoading) return <Loading />;
   if (error) return <ErrorMessage error={error} />;
   if (!categories) return <p>No data</p>;
 
-  
-  
   return (
     <div className="flex w-full h-full flex-col lg:gap-60 gap-28 px-8 lg:px-0 mb-28">
       <div className="w-full h-full">
@@ -79,8 +75,7 @@ const Home: React.FC = () => {
         </div>
 
         {/*Brand  */}
-        
-       
+
         <div className="w-full lg:h-[320px] lg:p-20 p-6 flex justify-between items-center bg-[#F2F2F2] gap-6">
           <div className="lg:w-[160px] lg:h-[160px] h-[50px] w-[50px] relative flex items-center justify-center">
             <Image
@@ -140,7 +135,7 @@ const Home: React.FC = () => {
 
       {/* Products */}
 
-      <div className="w-full lg:h-[846px] h-full flex lg:flex-row flex-col lg:px-20 justify-center gap-[30px] bg-blue-300">
+      <div className="w-full h-full flex lg:flex-row flex-col lg:px-20 justify-center gap-[30px] bg-blue-300">
         <div className="flex lg:w-[465px] h-full md:p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
@@ -157,15 +152,12 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-       
-        <ProductsList products={data?.products.slice(0,6)} />
-       
+
+        <ProductsList products={data?.products.slice(0, 8)} />
       </div>
 
-    
-
       {/* Custom thobe */}
-      <div className="lg:h-[800px] w-full flex lg:pl-[375px] items-center gap-[30px] bg-slate-400"> 
+      <div className="lg:h-[800px] w-full flex lg:pl-[375px] items-center gap-[30px] bg-slate-400">
         <CustomComponent
           title="Custom Thobe"
           description="Over rich 9+ years of experience, Thobe Customization Software has benefited numerous clients in Arab countries. Its state-of-art technology meets the growing trend and desires of people"
@@ -201,10 +193,9 @@ const Home: React.FC = () => {
             />
           </div>
         </div>
-       </div> 
+      </div>
 
-
-         {/* Custom shirt */}
+      {/* Custom shirt */}
       <div className="lg:h-[800px] w-full flex lg:pr-[375px] items-center gap-[30px] bg-red-200">
         <div className="w-[965px] h-full  lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
           <div className="w-[700px] h-full relative flex-shrink-0">
@@ -247,7 +238,7 @@ const Home: React.FC = () => {
 
       {/* explore fabrics */}
 
-      <div className="w-full lg:h-[846px] flex flex-col lg:flex-row-reverse lg:px-20 justify-center gap-[30px] bg-blue-300 ">
+      <div className="w-full lg:h-[846px] flex flex-col lg:flex-row-reverse lg:px-20 justify-between bg-blue-300 ">
         <div className="flex lg:w-[465px] lg:p-20 p-12 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
@@ -265,14 +256,12 @@ const Home: React.FC = () => {
             browse all
           </button>
         </div>
-       <CategoriesList categories={categories} /> 
-         {/* <ProductsList products={data?.products.slice(0,8)} />  */}
-        
+
+          <CategoriesList categories={categories} />
+    
       </div>
 
-    
-      <Accessories/>
-
+      <Accessories />
 
       {/* Choose Us */}
       <div className="h-full w-full py-0 xl:px-[375px] lg:px-[225px] bg-fuchsia-400 flex flex-col justify-between items-center gap-[80px]">
@@ -283,7 +272,7 @@ const Home: React.FC = () => {
           <div className="divide-y bg-black h-[2px] w-[200px]"></div>
         </div>
 
-        <div className="h-full w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-[30px] bg-slate-400">
+        <div className="h-full w-full grid lg:grid-cols-2 xl:grid-cols-3 gap-[30px]">
           <BenfitsComponent
             title="Trusted"
             icon={<FaRegHeart size={40} />}

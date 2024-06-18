@@ -21,10 +21,11 @@ const Pagination: FC<IPaginationProps> = ({ total, limit, activePage, setActiveP
 
   return (
     <div className='flex justify-center my-5'>
+      
       {pages.map(page => (
         <div
           key={page}
-          className={`leading-[1px] py-2 px-2  bhg-[#E9F0FB] bg-blue-300 cursor-pointer m-[2px] rounded ${activePage === page ? ' is-active' : ''}`}
+          className={`leading-[1px] p-4 hover:bg-[#E9F0FB] shadow cursor-pointer m-[2px] rounded-full ${activePage === page ? ' is-active' : ''}`}
           onClick={() => setActivePage(page)}
           onKeyDown={() => setActivePage(page)}
           role='button'
@@ -33,6 +34,7 @@ const Pagination: FC<IPaginationProps> = ({ total, limit, activePage, setActiveP
           {page}
         </div>
       ))}
+      
     </div>
   );
 };

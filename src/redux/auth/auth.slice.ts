@@ -11,8 +11,8 @@ interface AuthState{
 }
 
 const initialState: AuthState = {
-    token:"",
-    userId: 0,
+    token:localStorage.getItem('token') || "",
+    userId: Number(localStorage.getItem('userId')) || 0,
     user: null
 }
 export const authSlice = createSlice({
@@ -26,7 +26,7 @@ export const authSlice = createSlice({
         localStorage.setItem('token', action.payload.token)
         },
         setAuthUserId:(state: AuthState, action: PayloadAction<IUserId>)=>{
-            state.userId = action.payload.userId
+            state.userId = action.payload.userId;
             localStorage.setItem('userId', action.payload.userId.toString())
         },
         setUser: (state: AuthState, action: PayloadAction<IUserResponse>)=>{

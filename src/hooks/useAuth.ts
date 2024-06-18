@@ -22,9 +22,11 @@ export const useAuth = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    console.log('Token from localStorage:', token)
     token && setAuthToken({ token });
 
     const id = localStorage.getItem('userId');
+    console.log('userId from localStrage:',id)
     id && initUser(id);
   }, []); // eslint-disable-line
 };

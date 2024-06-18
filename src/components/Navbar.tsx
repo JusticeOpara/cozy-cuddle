@@ -23,7 +23,7 @@ const Navbar = () => {
   const handleNav = () => {
     setIsNavExapanded(!isNavExpanded);
   };
-  const products = useCartProductsSelector()
+  const products = useCartProductsSelector();
   return (
     <ClientOnly>
       <nav className="w-full">
@@ -35,11 +35,10 @@ const Navbar = () => {
             </li>
             <li className="flex items-center gap-1">
               {" "}
-              <MdForwardToInbox size={16} />{" "}
-              <span> {user ? user.firstName : "info@greelogix.com"}</span>
+              <MdForwardToInbox size={16} /> <span> jusfashion@gmail.com</span>
             </li>
             <li className="flex items-center gap-1">
-              <FaPhoneAlt size={16} /> <span>+92 333 6527366</span>
+              <FaPhoneAlt size={16} /> <span>+234 704 3434530</span>
             </li>
           </ul>
 
@@ -72,7 +71,7 @@ const Navbar = () => {
               </div>
             </Link>
 
-            <ul className=" md:flex items-center gap-[40px] hidden">
+            <ul className=" md:flex items-center gap-[40px] hidden cursor-pointer">
               <Link href="/">
                 <li className="text-[20px] font-normal leading-[30px] font-Barlow">
                   Home
@@ -85,9 +84,11 @@ const Navbar = () => {
                 </li>
               </Link>
 
-              <li className="text-[20px] font-normal leading-[30px] font-Barlow">
-                Pages
-              </li>
+              <Link href="/about">
+                <li className="text-[20px] font-normal leading-[30px] font-Barlow ">
+                  About
+                </li>
+              </Link>
 
               <Link href="/contact">
                 <li className="text-[20px] font-normal leading-[30px] font-Barlow">
@@ -102,15 +103,22 @@ const Navbar = () => {
               <CiSearch size={32} />
             </Link>
 
-            <Link href='/cart' className="flex flex-row-reverse">
-            <span className='cart-products-count'>{products.length}</span>
+            <Link href="/cart" className="flex flex-row-reverse">
+              <span className="cart-products-count">{products.length}</span>
               <RiShoppingBagLine size={32} />
-             
             </Link>
 
             {isAuthenticated && (
+                <h1 className="font-Montserrat"> Welcome {user ? user.firstName : "Dear"} </h1>
+            )}
+
+            {!isAuthenticated && (
               <>
-                <h1 className=""> Welcome {user ? user.firstName : "Dear"} </h1>
+                <Link href="/register">
+                  <button className="flex py-3 px-5 items-center bg-[#143A79] rounded-[800px] text-base uppercase font-semibold font-Barlow">
+                    Register
+                  </button>
+                </Link>
 
                 <Link href="/login">
                   <button className="flex py-3 px-5 items-center bg-white rounded-[800px] text-base uppercase font-semibold border-[#143A79] border font-Barlow">
@@ -118,14 +126,6 @@ const Navbar = () => {
                   </button>
                 </Link>
               </>
-            )}
-            
-            {!isAuthenticated && (
-              <Link href="/register">
-                <button className="flex py-3 px-5 items-center bg-[#143A79] rounded-[800px] text-base uppercase font-semibold font-Barlow">
-                  Register
-                </button>
-              </Link>
             )}
           </div>
 

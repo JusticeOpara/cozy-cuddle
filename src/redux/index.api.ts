@@ -21,15 +21,3 @@ export const baseApi = createApi({
   endpoints: (build) => ({}),// keslint-disable-line @typescript-eslint/no-unused-vars
 });
 
-// export const productsApi = createApi({
-//   reducerPath:"products",
-//   baseQuery: fetchBaseQuery({baseUrl:"https://dummyjson.com"}),
-//   endpoints:(builder)=>({
-//     getAllProduct : builder.query({
-//       query: () => '/products'
-//     })
-//   })
-
-// })
-
-// export const { useGetAllProductQuery} = productsApi
