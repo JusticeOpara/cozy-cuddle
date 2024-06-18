@@ -77,8 +77,8 @@ const Register = () => {
       setTimeout(() => {
         router.push('/');
       }, 1000);
-    } catch (err) {
-      setInputError(err.data.message);
+    } catch (err:any) {
+      setInputError(err.data.message || 'An unexpected error occurred');
     }
   };
 

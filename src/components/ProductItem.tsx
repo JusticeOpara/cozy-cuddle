@@ -4,6 +4,7 @@ import { FC } from "react";
 import Link from "next/link";
 import { IProduct } from "@/redux/products/product.types";
 import AddToCartBtn from "./AddToCartBtn";
+import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { AiOutlineShopping } from "react-icons/ai";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
@@ -18,11 +19,13 @@ const ProductItem: FC<IProduct> = ({ id, title, price, rating, thumbnail }) => {
         href={`/products/${String(id)}`}
         className="flex items-center justify-center h-full w-full bg-[#F2F2F2] rounded-t-3xl relative transition"
       >
-        <img
+        {/* <Image
           src={thumbnail}
           alt={title}
+          fill
           className="h-full w-full object-cover rounded-t-3xl"
-        />
+        /> */}
+         <img src={thumbnail} alt={title} /> 
       </Link>
 
       <div className="flex p-6 justify-center flex-col gap-4 items-start self-stretch">

@@ -5,6 +5,7 @@ import useActions from '@/redux/hooks/useActions';
 import AddToCartBtn from './AddToCartBtn';
 import RemoveFromCartBtn from './RemoveFromCartBtn';
 import { MdDelete } from 'react-icons/md';
+import Image from 'next/image';
 
 const CartItem: FC<ICartProducts> = ({ product: { price, thumbnail, title }, quantity, id }) => {
   
@@ -13,7 +14,7 @@ const CartItem: FC<ICartProducts> = ({ product: { price, thumbnail, title }, qua
   return (
     <div className='cart-item'>
       <div className='cart-item__pic'>
-        <img src={thumbnail} alt={title} />
+        <Image src={thumbnail} alt={title} fill/>
       </div>
       <div className='cart-item__info'>
         <div className='cart-item__title'>{title}</div>

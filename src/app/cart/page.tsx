@@ -14,7 +14,7 @@ const CartPage = () => {
     if (isSubmitOrder) {
       clearCart();
     }
-  }, [isSubmitOrder]);
+  }, [isSubmitOrder,clearCart]);
 
   return (
     <div className='cart-page'>

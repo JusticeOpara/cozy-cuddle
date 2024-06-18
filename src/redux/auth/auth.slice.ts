@@ -9,10 +9,10 @@ interface AuthState{
     userId: number;
     user: IUserResponse| null;
 }
-
+const isBrowser = typeof window !== 'undefined';
 const initialState: AuthState = {
-    token:localStorage.getItem('token') || "",
-    userId: Number(localStorage.getItem('userId')) || 0,
+    token:isBrowser ? localStorage.getItem('token') || "" : "",
+    userId:isBrowser ? Number(localStorage.getItem('userId')) || 0 : 0,
     user: null
 }
 export const authSlice = createSlice({

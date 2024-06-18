@@ -1,8 +1,9 @@
 
 import { useParams } from 'next/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import { Pagination } from 'swiper/modules';
 import { CiStar } from 'react-icons/ci';
+import Image from 'next/image';
 import { useGetProductQuery } from '@/redux/products/product.api';
 import AddToCartBtn from './AddToCartBtn';
 import Loading from './Loading';
@@ -27,11 +28,12 @@ const ProductDetails = () => {
       <h1>{title}</h1>
       <div className='product-details__pics'>
         <Swiper modules={[Pagination]} pagination={{ clickable: true }} slidesPerView={1}>
-          {images.map((image) => (
+           {images.map((image) => (
             <SwiperSlide key={image}>
-              <img src={image} alt={title} />
+          
+              <Image src={image} alt={title} fill/>
             </SwiperSlide>
-          ))}
+          ))} 
         </Swiper>
       </div>
       <div className='product-details__description'>
