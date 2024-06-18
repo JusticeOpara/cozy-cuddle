@@ -55,7 +55,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="md:h-[120px] h-[72px] z-50 bg-[#E9F0FB] flex w-full md:px-[80px] px-8 justify-between items-center fixed md:relative">
+        <div className="md:h-[120px] h-[72px] z-50 bg-[#E9F0FB] shadow flex w-full md:px-[80px] px-8 justify-between items-center fixed md:relative">
           <div className="flex items-center gap-[80px]">
             <Link href="/">
               <div className="flex items-center gap-4">

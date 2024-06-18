@@ -62,7 +62,7 @@ const Blogs = () => {
 
   const paginationEl = useRef(null);
   return (
-    <div className=" h-full w-full bg-slate-400 flex flex-col justify-center items-center py-0 lg:px-[375px] lg:gap-[80px] gap-10">
+    <div className=" h-full w-full flex flex-col justify-center items-center py-0 lg:px-[375px] gap-10">
       <div className="flex flex-col justify-center items-center gap-6 self-stretch ">
         <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
           Blog
@@ -70,7 +70,6 @@ const Blogs = () => {
         <div className="divide-y bg-black h-[2px] w-[200px]"></div>
       </div>
 
-      {/* <div className="w-full h-full flex flex-col items-center justify-center "> */}
       <Swiper
         slidesPerView={isMobile? 1 :3}
         spaceBetween={isMobile ? 16: 30}

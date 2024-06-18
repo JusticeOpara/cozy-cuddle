@@ -6,7 +6,6 @@ import { useLazySearchProductsQuery } from "@/redux/products/product.api";
 import ProductsList from "@/components/ProductsList";
 import Loading from "@/components/Loading";
 import ErrorMessage from "@/components/Error";
-import { FaSearch } from "react-icons/fa";
 import { BsFilter, BsSearch } from "react-icons/bs";
 import Pagination from "@/components/Pagination";
 

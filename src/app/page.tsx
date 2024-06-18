@@ -37,10 +37,10 @@ const Home: React.FC = () => {
   if (!categories) return <p>No data</p>;
 
   return (
-    <div className="flex w-full h-full flex-col lg:gap-60 gap-28 px-8 lg:px-0 mb-28">
+    <div className="flex w-full h-full flex-col gap-28 px-8 lg:px-0 mb-28">
       <div className="w-full h-full">
         <div className="w-full h-screen lg:h-[800px] bg-[#E9F0FB] gap-[30px] flex lg:pl-[375px] items-center">
-          <div className="w-full bg-gray-200 h-full flex flex-col justify-center gap-10">
+          <div className="w-full h-full flex flex-col justify-center gap-10">
             <div className="flex flex-col gap-[24px]">
               <h1 className="md:text-[48px] text-5xl md:w-[570px] font-Montserrat font-medium leading-[60px] self-stretch">
                 Find <span className="text-[#143A79]"> Custom Suits </span>{" "}
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full bg-gray-400 h-full relative lg:flex justify-end items-center hidden ">
+          <div className="w-full h-full relative lg:flex justify-end items-center hidden ">
             <Image
               src="/hero.png"
               fill
@@ -135,7 +135,7 @@ const Home: React.FC = () => {
 
       {/* Products */}
 
-      <div className="w-full h-full flex lg:flex-row flex-col lg:px-20 justify-center gap-[30px] bg-blue-300">
+      <div className="w-full h-full flex lg:flex-row flex-col lg:px-20 justify-center gap-[30px]">
         <div className="flex lg:w-[465px] h-full md:p-20 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
@@ -157,7 +157,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Custom thobe */}
-      <div className="lg:h-[800px] w-full flex lg:pl-[375px] items-center gap-[30px] bg-slate-400">
+      <div className="lg:h-[800px] w-full flex lg:pl-[175px] items-center gap-[30px] bg-slate-300">
         <CustomComponent
           title="Custom Thobe"
           description="Over rich 9+ years of experience, Thobe Customization Software has benefited numerous clients in Arab countries. Its state-of-art technology meets the growing trend and desires of people"
@@ -166,8 +166,8 @@ const Home: React.FC = () => {
           learnMoreButton="Learn More"
         />
         {/*  */}
-        <div className="w-[965px] h-full lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
-          <div className="w-[700px] h-full bg-black relative flex-shrink-0">
+        <div className="w-[965px] h-full lg:flex justify-end items-center hidden">
+          <div className=" w-full 2xl:w-[800px] h-full relative flex-shrink-0">
             <Image
               src="/img-collage06.png"
               width={388}
@@ -196,8 +196,8 @@ const Home: React.FC = () => {
       </div>
 
       {/* Custom shirt */}
-      <div className="lg:h-[800px] w-full flex lg:pr-[375px] items-center gap-[30px] bg-red-200">
-        <div className="w-[965px] h-full  lg:flex pt-0 pb-0 pl-[165px] pr-[80px] justify-end items-center bg-red-500 hidden">
+      <div className="lg:h-[800px] w-full flex lg:pl-[175px] items-center gap-[30px]">
+        <div className="w-[965px] h-full lg:flex justify-end items-center hidden">
           <div className="w-[700px] h-full relative flex-shrink-0">
             <Image
               src="/img-collage02.png"
@@ -238,8 +238,8 @@ const Home: React.FC = () => {
 
       {/* explore fabrics */}
 
-      <div className="w-full lg:h-[846px] flex flex-col lg:flex-row-reverse lg:px-20 justify-between bg-blue-300 ">
-        <div className="flex lg:w-[465px] lg:p-20 p-12 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB]">
+      <div className="w-full h-full lg:h-[846px] flex flex-col lg:flex-row-reverse lg:px-20 justify-between py-6 lg:py-0">
+        <div className="lg:flex lg:w-[465px] lg:p-20 p-12 flex-col justify-center items-start self-stretch gap-10 rounded-3xl bg-[#E9F0FB] hidden">
           <div className="flex flex-col gap-[24px]">
             <h1 className="text-[48px] w-[305px] font-Montserrat leading-[60px] self-stretch">
               Explore Fabrics
@@ -264,7 +264,7 @@ const Home: React.FC = () => {
       <Accessories />
 
       {/* Choose Us */}
-      <div className="h-full w-full py-0 xl:px-[375px] lg:px-[225px] bg-fuchsia-400 flex flex-col justify-between items-center gap-[80px]">
+      <div className="h-full w-full py-0 xl:px-[375px] lg:px-[225px] flex flex-col justify-between items-center gap-[80px]">
         <div className="flex flex-col justify-center items-center gap-6 self-stretch ">
           <h1 className="text-[48px] font-medium leading-[60px] font-Montserrat text-center">
             Why Choose Us
@@ -392,7 +392,6 @@ const Home: React.FC = () => {
           />
         </div>
       </div>
-
       {/* Blogs */}
       <Blogs />
     </div>
