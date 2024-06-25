@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <ClientOnly>
       <nav className="w-full">
-        <div className="h-[48px] bg-[#143A79] md:flex w-full py-[8px] px-[80px] justify-between items-center hidden ">
+        <div className="h-[48px] bg-[#143A79] md:flex w-full py-[8px] px-[80px] justify-between items-center hidden">
           <ul className="flex items-center gap-6 font-Barlow">
             <li className="flex items-center gap-1">
               <FaLocationDot size={16} />{" "}

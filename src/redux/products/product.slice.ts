@@ -1,22 +1,18 @@
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../index';
 import { useTypedSelector } from '../hooks/useTypeSelector';
 import { IProduct, ICategory } from './product.types';
 
-
 interface ProductState {
   products: IProduct[];
   product: IProduct | null;
   categories: ICategory[];
- 
 }
 
 const initialState: ProductState = {
   products: [],
   product: null,
   categories: [],
-
 };
 
 export const productSlice = createSlice({
@@ -32,7 +28,6 @@ export const productSlice = createSlice({
     setCategories: (state: ProductState, action: PayloadAction<ICategory[]>) => {
       state.categories = action.payload; // eslint-disable-line no-param-reassign
     },
-   
   },
 });
 

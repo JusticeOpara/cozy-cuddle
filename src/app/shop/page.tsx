@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ProductsList from "@/components/ProductsList";
-import { useProductsSelector } from "@/redux/products/product.slice";
 import { useGetProductsQuery } from "@/redux/products/product.api";
 import Loading from "@/components/Loading";
 import Pagination from "@/components/Pagination";

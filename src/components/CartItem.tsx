@@ -1,5 +1,4 @@
 import { FC } from 'react';
-
 import { ICartProducts } from '@/redux/cart/cart.types';
 import useActions from '@/redux/hooks/useActions';
 import AddToCartBtn from './AddToCartBtn';
@@ -7,20 +6,24 @@ import RemoveFromCartBtn from './RemoveFromCartBtn';
 import { MdDelete } from 'react-icons/md';
 import Image from 'next/image';
 
+
+
 const CartItem: FC<ICartProducts> = ({ product: { price, thumbnail, title }, quantity, id }) => {
   
   const { deleteCartItem } = useActions();
 
   return (
-    <div className='cart-item'>
-      <div className='cart-item__pic'>
-        <Image src={thumbnail} alt={title} fill/>
+    <div className='bg-red-500'>
+    
+      <div className='w-full'>
+        <Image src="/accessories02.png" className='' width={100} height={100} alt=''/>
+         <img src={thumbnail} alt={title} className=''/>
       </div>
-      <div className='cart-item__info'>
-        <div className='cart-item__title'>{title}</div>
-        <div className='cart-item__price'>{price}$</div>
-        <div className='cart-item__controls'>
-          <div className='cart-item__count'>
+      <div className=''>
+        <div className=''>{title}</div>
+        <div className=''>{price}$</div>
+        <div className=''>
+          <div className=''>
             <RemoveFromCartBtn id={id}>-</RemoveFromCartBtn>
             <span>{quantity}</span>
             <AddToCartBtn id={id}>+</AddToCartBtn>

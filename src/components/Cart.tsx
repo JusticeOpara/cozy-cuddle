@@ -2,7 +2,6 @@ import { FC } from 'react';
 import CartItem from './CartItem';
 import { ICartProducts } from '@/redux/cart/cart.types';
 
-
 interface ICartProps {
   setIsSubmitOrder: (isSubmitOrder: boolean) => void;
   products: ICartProducts[];
@@ -13,7 +12,7 @@ const Cart: FC<ICartProps> = ({ products, setIsSubmitOrder }) => {
 
   return (
     <>
-      <div className='cart-list'>
+      <div className='bg-bl bg-blue-500'>
         {products.map(cartProduct => (
           <CartItem key={cartProduct.id} {...cartProduct} />
         ))}

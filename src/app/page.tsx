@@ -8,14 +8,12 @@ import { RiTruckLine } from "react-icons/ri";
 import { IoFlashOutline } from "react-icons/io5";
 import { AiOutlineShopping } from "react-icons/ai";
 import { CiLock } from "react-icons/ci";
-import { Products, Fabrics } from "@/utills/data";
 import CustomComponent from "@/components/CustomComponent";
 import BenfitsComponent from "@/components/Benfits";
 import Blogs from "@/components/Blogs";
 import ProductsList from "@/components/ProductsList";
-import { useGetCategoriesQuery } from "@/redux/products/product.api";
+import { useGetCategoriesQuery , useGetProductsQuery } from "@/redux/products/product.api";
 import { useProductsSelector } from "@/redux/products/product.slice";
-import { useGetProductsQuery } from "@/redux/products/product.api";
 import CategoriesList from "@/components/CartgoriesList";
 import Accessories from "@/components/Accessories";
 import Loading from "@/components/Loading";
@@ -29,8 +27,9 @@ const Home: React.FC = () => {
     skip: (activePage - 1) * 10,
   });
   const products = useProductsSelector();
+  console.log(products,"useProductsSelector")
   console.log(data?.products, "--products");
-  console.log(categories, "---catgories data");
+  console.log(categories, "--products data");
 
   if (isLoading) return <Loading />;
   if (error) return <ErrorMessage error={error} />;

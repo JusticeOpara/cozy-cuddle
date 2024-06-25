@@ -1,5 +1,3 @@
-
-
 import { nanoid } from '@reduxjs/toolkit';
 import { baseApi } from '../index.api';
 import { IProduct, IGetProductsProps, IGetProductsResponse, ICategory } from './product.types';

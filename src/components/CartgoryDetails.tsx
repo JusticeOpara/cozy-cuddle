@@ -4,7 +4,6 @@ import ProductsList from './ProductsList';
 import ErrorMessage from './Error';
 
 
-
 type CategoryParamsId = {
   category: string;
 };
@@ -21,7 +20,7 @@ console.log(category,"category")
   return (
     <div className='category-details bg-red-500'>
       <h1>{category}</h1>
-      snklgslkjkjkgdsjkjgkjkgsdjk
+
       <ProductsList products={data?.products} />
     </div>
   );
